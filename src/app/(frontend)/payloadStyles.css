@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+/* @import 'tailwindcss/preflight.css' layer(base); */
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+ 
+
+@theme {
+  --color-cuteBlue: #32455A;
+  --color-tahiti: #3ab7bf;
+  --color-bermuda: #78dcca;
+  --color-trapColor: #f0f;
+}
