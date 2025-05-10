@@ -6,7 +6,7 @@ export default function HomePage() {
   return(
     <div className=' bg-gray-900 h-screen w-screen relative'>
       <div className='container mx-auto flex justify-center items-center h-screen'>
-      <h1 className='text-slate-50  font-extrabold text-6xl flex mx-auto justify-center items-center w-full h-full'>Coming Soon</h1>
+      <h1 className='text-slate-100  font-extrabold text-6xl flex mx-auto justify-center items-center w-full h-full'>Coming Soon</h1>
 
       <div className='shadow-blue-500 bg-blue-500 shadow-2xl drop-shadow-2xl blur-xs opacity-50 absolute rounded-full w-[500px] h-[500px] '>
         <div className='relative w-full h-full rounded-full bg-blue-400 '>
