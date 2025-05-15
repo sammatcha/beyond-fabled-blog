@@ -289,7 +289,7 @@ export interface Image {
  * via the `definition` "Text".
  */
 export interface Text {
-  text?: {
+  content?: {
     root: {
       type: string;
       children: {
@@ -519,7 +519,7 @@ export interface ImageSelect<T extends boolean = true> {
  * via the `definition` "Text_select".
  */
 export interface TextSelect<T extends boolean = true> {
-  text?: T;
+  content?: T;
   id?: T;
   blockName?: T;
 }

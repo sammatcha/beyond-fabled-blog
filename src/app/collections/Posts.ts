@@ -1,8 +1,8 @@
 import { CollectionConfig } from "payload";
 
-import { ContentWithMedia } from "../blocks/ContentWithMedia/config";
-import { Image } from "../blocks/Image/config";
-import { Text } from "../blocks/Text/config";
+import { ContentWithMedia } from "../(frontend)/components/blocks/ContentWithMedia/config";
+import { Image } from "../(frontend)/components/blocks/Image/config";
+import { Text } from "../(frontend)/components/blocks/Text/config";
 import slugify from "slugify";
 export const Posts : CollectionConfig = {
     slug: 'posts',
