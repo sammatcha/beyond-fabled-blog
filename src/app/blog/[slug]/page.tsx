@@ -13,4 +13,8 @@ const {docs} = await payload.find({
         }
     }
 })
+return (
+    <div>
+    </div>
+)
 }
