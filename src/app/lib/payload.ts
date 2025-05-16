@@ -1,6 +1,6 @@
-import { getPayloadHMR } from "@payloadcms/next/utilities"
-import config from "@payload-config";
+// import { getPayloadHMR } from "@payloadcms/next/utilities"
+// import config from "@payload-config";
 
-export async function getPayload(){
-    return getPayloadHMR
-{config}}
+// export async function getPayload(){
+//     return getPayloadHMR
+// {config}}
