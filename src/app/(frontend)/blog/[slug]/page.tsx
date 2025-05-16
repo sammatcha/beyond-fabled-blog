@@ -1,8 +1,13 @@
 import { getPayload } from "payload";
 import config from '@payload-config';
 
+type PostPageProps = {
+    params: {
+        slug: string;
+    }
+}
 // individual post page
-export default async function PostPage({params}: {params: {slug : string}}){
+export default async function PostPage({params}: PostPageProps){
     const payload = await getPayload({config});
 const {docs} = await payload.find({
     collection: 'posts', //required
