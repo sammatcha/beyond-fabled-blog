@@ -13,8 +13,11 @@ const {docs} = await payload.find({
         }
     }
 })
-return (
-    <div>
+const posts = docs[0];
+console.log('Post:', posts); // Debugging
+ return (
+    <div className="p-6">
+      <h1 className="text-3xl font-bold">test</h1>
     </div>
-)
+  );
 }
