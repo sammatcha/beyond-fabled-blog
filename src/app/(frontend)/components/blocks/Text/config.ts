@@ -10,8 +10,8 @@ labels: {
 },
 fields: [
     {
+        name: 'content',
         type: 'richText',
-        name: 'text',
         editor: lexicalEditor(),
     }
 ]

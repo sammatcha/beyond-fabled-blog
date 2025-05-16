@@ -5,8 +5,8 @@ import { buildConfig } from 'payload'
 import { Media } from '@/app/collections/Media'
 import { Users } from '@/app/collections/Users'
 import { Posts } from '@/app/collections/Posts'
-import {Text} from '@/app/blocks/Text/config'
-import { Image } from '@/app/blocks/Image/config'
+import {Text} from '@/app/(frontend)/components/blocks/Text/config'
+import { Image } from '@/app/(frontend)/components/blocks/Image/config'
 
 export default buildConfig({
   // If you'd like to use Rich Text, pass your editor here
