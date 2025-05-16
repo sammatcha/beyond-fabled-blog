@@ -7,7 +7,9 @@ type PostPageProps = {
     }
 }
 // individual post page
-export default async function PostPage({params}: PostPageProps){
+export default async function PostPage(props: PostPageProps) {
+    const { params } = props;
+    const { slug } = params;
     const payload = await getPayload({config});
 const {docs} = await payload.find({
     collection: 'posts', //required
