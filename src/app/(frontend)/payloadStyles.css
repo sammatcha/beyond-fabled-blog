@@ -13,4 +13,10 @@
   --color-tahiti: #3ab7bf;
   --color-bermuda: #78dcca;
   --color-trapColor: #f0f;
+  --font-robotoMono: var(--font-roboto-mono);
+  --font-julius: var(--font-julius);
+  --font-alexBrush: var(--font-alex-brush);
+  --font-oleoScript: var(--font-oleo-script);
+  --font-caveatBrush: var(--font-caveatBrush);
+          
 }
