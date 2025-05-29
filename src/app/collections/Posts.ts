@@ -1,9 +1,9 @@
 import { CollectionConfig } from "payload";
-
-import { ContentWithMedia } from "../(frontend)/components/blocks/ContentWithMedia/config";
-import { Image } from "../(frontend)/components/blocks/Image/config";
-import { Text } from "../(frontend)/components/blocks/Text/config";
+import { ContentWithMediaBlock } from "../blocks/ContentWithMedia/config";
+import { ImageBlock } from "../blocks/Image/config";
+import { TextBlock } from "../blocks/Text/config";
 import slugify from "slugify";
+import { Content } from "next/font/google";
 export const Posts : CollectionConfig = {
     slug: 'posts',
     fields: [
@@ -15,7 +15,25 @@ export const Posts : CollectionConfig = {
         {
             name: 'blocks',
             type: 'blocks',
-            blocks: [ContentWithMedia, Image, Text],
+            blocks: [ContentWithMediaBlock, TextBlock, ImageBlock],
+        },
+        {
+          name: 'category',
+          type: 'select',
+          options: [
+          'Books', 'Games', 'Travel', 'Lifestyle'
+          ],
+          required: true,
+        },
+        {
+          name: 'keywords',
+          type: 'array',
+          fields: [
+            {
+              name: 'tag',
+              type: 'text'
+            }
+          ]
         },
         {
             name: 'slug',

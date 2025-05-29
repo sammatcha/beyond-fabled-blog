@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto_Mono, Julius_Sans_One, Alex_Brush, Oleo_Script, Caveat_Brush } from "next/font/google";
 import './globals.css';
 import './payloadStyles.css';
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
 
 
 const geistSans = Geist({

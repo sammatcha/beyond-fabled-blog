@@ -65,9 +65,7 @@ export interface Config {
   auth: {
     users: UserAuthOperations;
   };
-  blocks: {
-    textBlock: TextBlock;
-  };
+  blocks: {};
   collections: {
     media: Media;
     users: User;
@@ -116,30 +114,6 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "textBlock".
- */
-export interface TextBlock {
-  text?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'textBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -243,7 +217,14 @@ export interface User {
 export interface Post {
   id: string;
   title: string;
-  blocks?: (ContentWithMedia | Image | Text)[] | null;
+  blocks?: (ContentWithMedia | Text | Image)[] | null;
+  category: 'Books' | 'Games' | 'Travel' | 'Lifestyle';
+  keywords?:
+    | {
+        tag?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   slug?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -276,20 +257,10 @@ export interface ContentWithMedia {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Image".
- */
-export interface Image {
-  image?: (string | null) | Media;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'image';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Text".
  */
 export interface Text {
-  content?: {
+  content: {
     root: {
       type: string;
       children: {
@@ -303,10 +274,20 @@ export interface Text {
       version: number;
     };
     [k: string]: unknown;
-  } | null;
+  };
   id?: string | null;
   blockName?: string | null;
   blockType: 'text';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Image".
+ */
+export interface Image {
+  image?: (string | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'image';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -487,8 +468,15 @@ export interface PostsSelect<T extends boolean = true> {
     | T
     | {
         contentWithMedia?: T | ContentWithMediaSelect<T>;
-        image?: T | ImageSelect<T>;
         text?: T | TextSelect<T>;
+        image?: T | ImageSelect<T>;
+      };
+  category?: T;
+  keywords?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
       };
   slug?: T;
   updatedAt?: T;
@@ -507,19 +495,19 @@ export interface ContentWithMediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Image_select".
+ * via the `definition` "Text_select".
  */
-export interface ImageSelect<T extends boolean = true> {
-  image?: T;
+export interface TextSelect<T extends boolean = true> {
+  content?: T;
   id?: T;
   blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Text_select".
+ * via the `definition` "Image_select".
  */
-export interface TextSelect<T extends boolean = true> {
-  content?: T;
+export interface ImageSelect<T extends boolean = true> {
+  image?: T;
   id?: T;
   blockName?: T;
 }

@@ -1,43 +1,24 @@
 import sharp from 'sharp'
-import { BlocksFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
+import { BlocksFeature, lexicalEditor, editorConfigFactory,getEnabledNodes} from '@payloadcms/richtext-lexical'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { buildConfig } from 'payload'
 import { Media } from '@/app/collections/Media'
 import { Users } from '@/app/collections/Users'
 import { Posts } from '@/app/collections/Posts'
-import {Text} from '@/app/(frontend)/components/blocks/Text/config'
-import { Image } from '@/app/(frontend)/components/blocks/Image/config'
+// import {TextBlock} from '@/app/(frontend)/components/blocks/Text/config'
+import { ImageBlock } from '@/app/blocks/Image/config'
 
 export default buildConfig({
   // If you'd like to use Rich Text, pass your editor here
-  editor: lexicalEditor(),
+  editor: lexicalEditor({}),
 
-  blocks: [
-    {slug: 'textBlock',
-      labels: {
-        singular: 'Text Block',
-        plural: 'Text Blocks'
-      },
-      fields: [
-        {name: 'text',
-          type: 'richText',
-          editor: lexicalEditor({
-            features: [
-              BlocksFeature({
-                blocks: [Text, Image],
-              }),
-            ]
-          }),
-        }
-      ]
-    }
-  ],
   // Define and configure your collections in this array
   collections: [
     Media,
     Users,
     Posts
   ],
+  
 
   // Your Payload secret - should be a complex and secure string, unguessable
   secret: process.env.PAYLOAD_SECRET || '',

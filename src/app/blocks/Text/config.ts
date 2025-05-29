@@ -1,7 +1,8 @@
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { Block } from "payload";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 
-export const Text: Block = {
+
+export const TextBlock: Block = {
 slug: 'text',
 interfaceName: 'Text',
 labels: {
@@ -13,6 +14,8 @@ fields: [
         name: 'content',
         type: 'richText',
         editor: lexicalEditor(),
-    }
+        required: true
+    },
 ]
 }
+

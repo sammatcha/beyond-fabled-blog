@@ -1,18 +1,18 @@
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { Block } from "payload";
 
-export const ContentWithMedia: Block = {
+export const ContentWithMediaBlock: Block = {
     slug: 'contentWithMedia',  // required - how to render in front end
     interfaceName: 'ContentWithMedia',
     labels: {
         singular: 'Content With Media Block',
         plural: 'Content With Media Blocks'
     },
-    fields: [//required
+    fields: [ //required
         {
             name: 'content',
             type: 'richText',
-            editor: lexicalEditor(),
+            editor: lexicalEditor({}),
         },
         {
             name: 'image',

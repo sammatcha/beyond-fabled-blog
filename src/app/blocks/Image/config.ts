@@ -1,6 +1,6 @@
 import { Block } from "payload";
 
-export const Image: Block = {
+export const ImageBlock: Block = {
     slug: 'image',
     interfaceName: 'Image',
     labels: {
