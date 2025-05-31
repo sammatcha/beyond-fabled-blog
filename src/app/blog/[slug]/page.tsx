@@ -1,10 +1,11 @@
 import { getPayload } from "payload";
 import config from '@payload-config';
-import BlockRenderer from "../../blocks";
-
+import RenderBlocks from "../../blocks/index"; 
+import { ContentWithMedia , Text, Image} from "../../../../payload-types";
+import { RefreshRouteOnSave } from "../../components/RefreshRouteOnSave"
 
 // individual post page
-export default async function PostPage({params,
+export default async function PostPage({params
 }: {
     params: Promise<{ slug:string}>
 }) {
@@ -18,14 +19,16 @@ const {docs} = await payload.find({
         slug: {
             equals: slug
         }
-    }
+    },
+    draft: true, //optional, if you want to fetch draft posts
 })
 const data = docs?.[0]; //entire post object
 console.log('allPost:', data); 
  return (
     <div className="p-6">
-      {/* <h1 className="text-3xl font-bold mb-4">{data?.title}</h1> */}
-      {/* <BlockRenderer block={data.blocks}   */}
+       <RefreshRouteOnSave />
+      <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
+      <RenderBlocks  blocks={data.blocks}  />
     </div>
   )
 }

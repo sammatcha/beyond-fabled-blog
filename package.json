@@ -8,10 +8,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-     "generate:types": "payload generate:types"
+    "generate:types": "payload generate:types"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "^3.37.0",
+    "@payloadcms/live-preview-react": "^3.40.0",
     "@payloadcms/next": "^3.37.0",
     "@payloadcms/richtext-lexical": "^3.39.1",
     "@payloadcms/ui": "^3.39.1",

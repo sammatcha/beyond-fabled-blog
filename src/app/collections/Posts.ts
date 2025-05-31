@@ -35,6 +35,7 @@ export const Posts : CollectionConfig = {
             }
           ]
         },
+       
         {
             name: 'slug',
             type: 'text',
@@ -54,8 +55,20 @@ export const Posts : CollectionConfig = {
                  
                 },
               ],
+
             },
           },
-    ]
+    ],
+      versions: {
+        drafts: {
+      autosave: 
+      {
+      interval: 100, // We set this interval for optimal live preview
+    },
+    schedulePublish: true,
+  },
+  maxPerDoc: 50,
+    },
 }
+
 

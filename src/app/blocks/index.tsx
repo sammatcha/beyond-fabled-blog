@@ -10,7 +10,8 @@ const blockComponents = {
   text: TextBlock,
   image: ImageBlock,
 }
-export default function RenderBlocks(blocks: Post['blocks']) {
+
+export default function RenderBlocks({blocks}: { blocks?: Post['blocks'] | null }) {
   if (!blocks) return null;
   return (
     <>
@@ -22,7 +23,7 @@ export default function RenderBlocks(blocks: Post['blocks']) {
           )
         case 'text':
           return (
-            <TextBlock key={block.id} {...block} />
+            <TextBlock key={block.id}  {...block} />
           );
         case 'image':
           return (

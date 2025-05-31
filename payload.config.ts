@@ -9,6 +9,22 @@ import { Posts } from '@/app/collections/Posts'
 import { ImageBlock } from '@/app/blocks/Image/config'
 
 export default buildConfig({
+  admin: {
+    livePreview: {
+      url: 'http://localhost:3000',
+      collections: ['posts'],
+      breakpoints: [
+        {
+          label: 'Mobile',
+          name: 'mobile',
+          width: 375,
+          height: 667,
+        },
+      ],
+    }
+  },
+
+
   // If you'd like to use Rich Text, pass your editor here
   editor: lexicalEditor({}),
 

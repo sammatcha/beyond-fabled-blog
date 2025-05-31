@@ -8,21 +8,23 @@ import Image from "next/image";
 //     className?: string;
 // } & ContentWithMediaProps;
 
-export function ContentWithMediaBlock(block: ContentWithMedia) {
-    const content = block.content ? convertLexicalToHTML({data:block.content}) : '';
+export function ContentWithMediaBlock(props: ContentWithMedia) {
+    const html = props.content ? convertLexicalToHTML({data:props.content}) : '';
+    console.log("ContentWithMediaBlock html", html);
+    console.log("ContentWithMediaBlock props", props);
 
-   if (block.textPosition === 'left') {
+   if (props.textPosition === 'left') {
         return(
             <section>
-            {block.content && <div dangerouslySetInnerHTML={{__html: block.content}}/>}  
-            {block.image && typeof block.image === 'object' && <Image src={block.image.url || ""} alt={block.image.alt || ""} />}
+            {props.content && <div dangerouslySetInnerHTML={{__html: html}}/>}  
+            {props.image && typeof props.image === 'object' && <Image src={props.image.url || ""} alt={props.image.alt || ""} width={props.image.width || 360} height={props.image.height || 360}/>}
             </section>
         )
-   } else if (block.textPosition === 'right') {
+   } else if (props.textPosition === 'right') {
         return(
             <section>
-            {block.content && <div dangerouslySetInnerHTML={{__html: block.content}}/>}  
-            {block.image && typeof block.image === 'object' && <Image src={block.image.url || ""} alt={block.image.alt || ""} />}
+            {props.content && <div dangerouslySetInnerHTML={{__html: html}}/>}  
+            {props.image && typeof props.image === 'object' && <Image src={props.image.url || ""} alt={props.image.alt || ""} width={props.image.width || 360} height={props.image.height || 360}  />}
            
             </section>
         )

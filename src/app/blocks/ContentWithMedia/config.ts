@@ -12,7 +12,7 @@ export const ContentWithMediaBlock: Block = {
         {
             name: 'content',
             type: 'richText',
-            editor: lexicalEditor({}),
+            editor: lexicalEditor(),
         },
         {
             name: 'image',
