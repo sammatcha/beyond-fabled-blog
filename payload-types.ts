@@ -225,11 +225,18 @@ export interface User {
 export interface Post {
   id: string;
   title: string;
+  featureImage?: (string | null) | Media;
   blocks?: (ContentWithMedia | Text | Image)[] | null;
   category: 'Books' | 'Games' | 'Travel' | 'Lifestyle';
   keywords?:
     | {
         tag?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  gallery?:
+    | {
+        image?: (string | Media)[] | null;
         id?: string | null;
       }[]
     | null;
@@ -569,6 +576,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  featureImage?: T;
   blocks?:
     | T
     | {
@@ -581,6 +589,12 @@ export interface PostsSelect<T extends boolean = true> {
     | T
     | {
         tag?: T;
+        id?: T;
+      };
+  gallery?:
+    | T
+    | {
+        image?: T;
         id?: T;
       };
   slug?: T;

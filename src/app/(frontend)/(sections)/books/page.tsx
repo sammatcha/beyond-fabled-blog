@@ -1,9 +1,9 @@
-import PostPage from "../../../blog/[slug]/page";
+// import PostPage from "../../blog/[slug]/page";
 import config from '@payload-config';
 
-import payload, { getPayload } from "payload"; // Add this import if 'payload' is your backend SDK
-import PostList from "../../../components/postList";
-import Link from "next/link";
+import  { getPayload } from "payload"; 
+import PostList from "../../postList";
+
 
 
 export default async function BooksPage(){
@@ -14,7 +14,7 @@ export default async function BooksPage(){
   });
 
   return(  
-    <div>
+    <div className="flex flex-col">
       
       <PostList posts={posts} filterBy="Books"/>
     

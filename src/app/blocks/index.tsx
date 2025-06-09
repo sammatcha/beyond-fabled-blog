@@ -3,13 +3,13 @@ import TextBlock from './Text/TextBlock';
 import ImageBlock from './Image/ImageBlock';
 import { ContentWithMediaBlock } from './ContentWithMedia/ContentWithMediaBlock';
 import { Post } from '../../../payload-types';
-import { block } from 'sharp';
 
-const blockComponents = {
-  contentWithMedia: ContentWithMediaBlock,
-  text: TextBlock,
-  image: ImageBlock,
-}
+
+// const blockComponents = {
+//   contentWithMedia: ContentWithMediaBlock,
+//   text: TextBlock,
+//   image: ImageBlock,
+// }
 
 export default function RenderBlocks({blocks}: { blocks?: Post['blocks'] | null }) {
   if (!blocks) return null;
@@ -27,7 +27,9 @@ export default function RenderBlocks({blocks}: { blocks?: Post['blocks'] | null 
           );
         case 'image':
           return (
-            <ImageBlock key={block.id} image={block.image} />
+            typeof block.image === 'object' && block.image !== null
+              ? <ImageBlock key={block.id} image={block.image}  />
+              : null
           );
         default:
 return null;     

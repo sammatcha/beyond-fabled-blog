@@ -2,16 +2,19 @@ import sharp from 'sharp'
 import { BlocksFeature, lexicalEditor, editorConfigFactory,getEnabledNodes} from '@payloadcms/richtext-lexical'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { buildConfig } from 'payload'
-import { Media } from '@/app/collections/Media'
-import { Users } from '@/app/collections/Users'
-import { Posts } from '@/app/collections/Posts'
+import { Media } from '@/app/(payload)/collections/Media'
+import { Users } from '@/app/(payload)/collections/Users'
+import { Posts } from '@/app/(payload)/collections/Posts'
 // import {TextBlock} from '@/app/(frontend)/components/blocks/Text/config'
 import { ImageBlock } from '@/app/blocks/Image/config'
 
 export default buildConfig({
   admin: {
     livePreview: {
-      url: 'http://localhost:3000',
+      url: ({data}) => {
+        if (!data?.slug) return '/';
+        return `/blog/${data.slug}`;
+      },
       collections: ['posts'],
       breakpoints: [
         {

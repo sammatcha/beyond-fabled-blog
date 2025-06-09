@@ -1,5 +1,5 @@
 import { getPayload } from "payload";
-import PostList from "../../../components/postList";
+import PostList from "../../postList";
 import config from '@payload-config';
 
 
@@ -10,6 +10,8 @@ export default async function GamesPage() {
         depth: 1,
     })
     return(
+        <div className="flex flex-col">
         <PostList posts={posts} filterBy="Games" />
+        </div>
     )
 }

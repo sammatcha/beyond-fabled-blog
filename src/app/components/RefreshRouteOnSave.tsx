@@ -9,7 +9,7 @@ export const RefreshRouteOnSave: React.FC = () => {
   return (
     <PayloadLivePreview
       refresh={() => router.refresh()}
-      serverURL={process.env.NEXT_PUBLIC_PAYLOAD_URL || ''} 
+      serverURL={process.env.PAYLOAD_PUBLIC_PAYLOAD_URL!} 
     />
   )
 }

@@ -10,13 +10,22 @@
 
 @theme {
   --color-cuteBlue: #32455A;
+  --color-lightCuteBlue: #4B5F77;
   --color-tahiti: #3ab7bf;
   --color-bermuda: #78dcca;
   --color-trapColor: #f0f;
+ --color-warmBeige: #ECE8E1;
+ --color-warmSand:  #D8B8AD;
+ --color-sageGreen: #59775C;
+ --color-lightSageGreen: #6f8c72;
   --font-robotoMono: var(--font-roboto-mono);
   --font-julius: var(--font-julius);
   --font-alexBrush: var(--font-alex-brush);
   --font-oleoScript: var(--font-oleo-script);
   --font-caveatBrush: var(--font-caveatBrush);
+  --font-quickSand: var(--font-quickSand);
+  --font-karla: var(--font-karla);
+  --font-mPlusRound: var(--font-mPlusRoun);
+  --font-nunito: var(--font-nunito);
           
 }
