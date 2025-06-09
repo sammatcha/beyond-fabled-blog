@@ -1,6 +1,5 @@
 import type {ContentWithMedia } from "../../../../payload-types";
 import { convertLexicalToHTML } from '@payloadcms/richtext-lexical/html';
-import { RichText } from '../../components/RichText';
 import Image from "next/image";
 // import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical';
 

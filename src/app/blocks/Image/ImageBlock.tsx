@@ -1,26 +1,34 @@
 import React from "react"
 import { Media } from "../../../../payload-types";
+import Image from "next/image";
 
 
 type ImageBlockProps = {
-  image: Media | null | undefined;
+  image:string | Media | null | undefined;
 };
 
 export default function ImageBlock(props:ImageBlockProps) {
   
+    const image = props.image;
    console.log("Image block:", props);
+    const isMedia = 
+    image && typeof image === 'object' && 'url' in image;
 
-    const selectedSize = props?.image?.displaySize ?? "tablet";
+    if (!isMedia){
+        return null;
+    }
+
+    const selectedSize = image?.displaySize ?? "tablet";
     console.log("Selected Size:", selectedSize);
-    const imageURL = props?.image?.sizes?.[selectedSize]?.url ?? props?.image?.url;
-    const width = props?.image?.sizes?.[selectedSize]?.width ?? 500;
-    const height = props?.image?.sizes?.[selectedSize]?.height ?? 500;
+    const imageURL = image?.sizes?.[selectedSize]?.url ?? image?.url;
+    const width = image?.sizes?.[selectedSize]?.width ?? 500;
+    const height = image?.sizes?.[selectedSize]?.height ?? 500;
     return(
         <div className="min-w-width">
           
             <>
-            {props?.image?.url && (
-                <img src={imageURL ?? undefined} alt={props.image?.alt ?? "Image Block"} width={width} height={height} className="w-full max-w-[768px] h-auto mx-auto object-contain" />
+            {imageURL && (
+                <Image src={imageURL ?? undefined} alt={image?.alt ?? "Image Block"} width={width} height={height} className="w-full max-w-[768px] h-auto mx-auto object-contain" />
             )}
             </>
  

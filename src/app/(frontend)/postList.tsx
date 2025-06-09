@@ -1,12 +1,13 @@
-// import { Posts } from "@/app/(payload)/collections/Posts";
+import { Post } from "../../../payload-types";
 import Image from "next/image";
 import Link from "next/link";
 
+interface PostListPage{
+    posts: Post[];
+    filterBy: string;
+}
 //LIST OF POSTS / PAGE
-export default function PostList({
-    posts, 
-    filterBy, 
-}:{posts: any[], filterBy: string}) 
+export default function PostList({posts, filterBy}: PostListPage) 
 {
 const filteredPosts = filterBy
 ? posts.filter((post) => post.category === filterBy)
@@ -21,7 +22,15 @@ console.log("posts:", posts);
                                 <div className="border rounded-xl border-warmBeige flex flex-col bg-white shadow-lg justify-center items-center hover:opacity-80 " > 
                                     {post.featureImage && (
                                     <div className="flex h-[150px] lg:h-[180px]  ">
-                                        <Image src={post.featureImage.url} alt="image" width={400} height={200} className="object-cover w-full h-full" />
+                                        {typeof post.featureImage === 'object' && post.featureImage.url && (
+                                        <Image
+                                            src={post.featureImage.url}
+                                            alt="image"
+                                            width={400}
+                                            height={200}
+                                            className="object-cover w-full h-full"
+                                        />
+                                        )}
                                     </div>
                                     )}
                                  <div className="text-2xl">

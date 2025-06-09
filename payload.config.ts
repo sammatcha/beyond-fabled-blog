@@ -1,12 +1,15 @@
+import path from 'path'
 import sharp from 'sharp'
-import { BlocksFeature, lexicalEditor, editorConfigFactory,getEnabledNodes} from '@payloadcms/richtext-lexical'
+import {  lexicalEditor} from '@payloadcms/richtext-lexical'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { buildConfig } from 'payload'
 import { Media } from '@/app/(payload)/collections/Media'
 import { Users } from '@/app/(payload)/collections/Users'
 import { Posts } from '@/app/(payload)/collections/Posts'
 // import {TextBlock} from '@/app/(frontend)/components/blocks/Text/config'
-import { ImageBlock } from '@/app/blocks/Image/config'
+// import { ImageBlock } from '@/app/blocks/Image/config'
+
+
 
 export default buildConfig({
   admin: {
@@ -38,7 +41,9 @@ export default buildConfig({
     Posts
   ],
   
-
+	typescript: {
+    outputFile: path.resolve(__dirname, './payload-types.ts'),
+  },
   // Your Payload secret - should be a complex and secure string, unguessable
   secret: process.env.PAYLOAD_SECRET || '',
   // Whichever Database Adapter you're using should go here
