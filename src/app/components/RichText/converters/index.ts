@@ -2,7 +2,6 @@ import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical
 import { DefaultNodeTypes, SerializedBlockNode } from '@payloadcms/richtext-lexical'
 import { JSXConvertersFunction, LinkJSXConverter } from '@payloadcms/richtext-lexical/react'
 import React from 'react';
-import { ContentWithMediaBlock } from '../../../blocks/ContentWithMedia/ContentWithMediaBlock';
 import { internalDocToHref } from './internalLink'
 
 type ContentWithMediaProps = {
