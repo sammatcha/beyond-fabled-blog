@@ -1,44 +1,49 @@
+import path from 'path'
 import sharp from 'sharp'
-import { BlocksFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
+import {  lexicalEditor} from '@payloadcms/richtext-lexical'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { buildConfig } from 'payload'
-import { Media } from '@/app/collections/Media'
-import { Users } from '@/app/collections/Users'
-import { Posts } from '@/app/collections/Posts'
-import {Text} from '@/app/(frontend)/components/blocks/Text/config'
-import { Image } from '@/app/(frontend)/components/blocks/Image/config'
+import { Media } from '@/app/(payload)/collections/Media'
+import { Users } from '@/app/(payload)/collections/Users'
+import { Posts } from '@/app/(payload)/collections/Posts'
+// import {TextBlock} from '@/app/(frontend)/components/blocks/Text/config'
+// import { ImageBlock } from '@/app/blocks/Image/config'
+
+
 
 export default buildConfig({
-  // If you'd like to use Rich Text, pass your editor here
-  editor: lexicalEditor(),
-
-  blocks: [
-    {slug: 'textBlock',
-      labels: {
-        singular: 'Text Block',
-        plural: 'Text Blocks'
+  admin: {
+    livePreview: {
+      url: ({data}) => {
+        if (!data?.slug) return '/';
+        return `/blog/${data.slug}`;
       },
-      fields: [
-        {name: 'text',
-          type: 'richText',
-          editor: lexicalEditor({
-            features: [
-              BlocksFeature({
-                blocks: [Text, Image],
-              }),
-            ]
-          }),
-        }
-      ]
+      collections: ['posts'],
+      breakpoints: [
+        {
+          label: 'Mobile',
+          name: 'mobile',
+          width: 375,
+          height: 667,
+        },
+      ],
     }
-  ],
+  },
+
+
+  // If you'd like to use Rich Text, pass your editor here
+  editor: lexicalEditor({}),
+
   // Define and configure your collections in this array
   collections: [
     Media,
     Users,
     Posts
   ],
-
+  
+	typescript: {
+    outputFile: path.resolve(__dirname, './payload-types.ts'),
+  },
   // Your Payload secret - should be a complex and secure string, unguessable
   secret: process.env.PAYLOAD_SECRET || '',
   // Whichever Database Adapter you're using should go here
