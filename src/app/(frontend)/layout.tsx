@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto_Mono, Julius_Sans_One, Alex_Brush, Oleo_Script, Caveat_Brush, Quicksand, Karla, M_PLUS_Rounded_1c, Nunito } from "next/font/google";
 import './globals.css';
 import './payloadStyles.css';
-import Navbar from "./components/Navbar";
+import Nav from "./components/nav/Nav";
 
 
 const geistSans = Geist({
@@ -87,7 +87,7 @@ export default function RootLayout({
           ${nunito.variable}
           antialiased   `}>
       <body className={" overflow-y-hidden min-h-screen min-w-screen lg:text-xl "}>
-        <Navbar />
+        <Nav />
         <main className="bg-warmBeige min-h-screen min-w-full overflow-y-hidden text-cuteBlue font-bold font-quickSand">
           {children}
         </main>
