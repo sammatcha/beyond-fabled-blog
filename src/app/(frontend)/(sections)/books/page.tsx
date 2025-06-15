@@ -14,7 +14,7 @@ export default async function BooksPage(){
   });
 
   return(  
-    <div className="flex flex-col">
+    <div className="px-4 py-8 max-w-7xl mx-auto ">
       
       <PostList posts={posts} filterBy="Books"/>
     

@@ -14,10 +14,8 @@ export default async function LifestylePage(){
         }
     });
     return(
-        <div className="px-4 py-8 max-w-7xl mx-auto">
+        <div className="px-4 py-4 max-w-7xl mx-auto">
           
-               
-               
                     <PostList posts={posts} filterBy="Lifestyle"/>
         </div>
 
