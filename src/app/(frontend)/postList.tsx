@@ -14,34 +14,43 @@ const filteredPosts = filterBy
 : posts;
 console.log("posts:", posts);
     return(
-             <div className="w-full h-screen ">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1 md:grid-rows-2  gap-6 container mt-2 min-w-2xs max-w-sm md:max-w-4xl lg:max-w-6xl mx-auto  ">
+             
+                <div className="grid grid-cols-1  md:grid-cols-3  grid-rows-1 md:grid-rows-3 gap-6 container 
+                mt-2 max-w-sm md:max-w-6xl mx-auto px-4 sm:px-6  pt-15 md:pt-20 ">
                 
                         {filteredPosts.map((post) =>  (
                             <Link  key={post.id} href={`/blog/${post.slug}`} className="flex flex-col gap-y-3 ">
-                                <div className="border rounded-xl border-warmBeige flex flex-col bg-white shadow-lg justify-center items-center hover:opacity-80 " > 
+                                <div className="border rounded-xl border-warmBeige flex flex-col bg-white shadow-lg 
+                                 justify-center items-center hover:opacity-80 h-[200px]  md:h-[250px] overflow-hidden  mx-auto " > 
                                     {post.featureImage && (
-                                    <div className="flex h-[150px] lg:h-[180px]  ">
+                                    <div className="w-full aspect-[4/3] ">
                                         {typeof post.featureImage === 'object' && post.featureImage.url && (
                                         <Image
                                             src={post.featureImage.url}
                                             alt="image"
                                             width={400}
                                             height={200}
-                                            className="object-cover w-full h-full"
+                                            className="w-full h-full object-cover"
                                         />
                                         )}
                                     </div>
                                     )}
-                                 <div className="text-2xl">
-                                    {post.title}
+                                     </div>
+                                     {/* Post Content */}
+                                 <div className="text-lg md:text-xl lg:text-2xl flex flex-col items-center">
+                                   <h2 className="font-bold font-karla">{post.title}</h2> 
                                 </div>
-                                </div>
+                               
                             </Link>
             ))}
                 </div>
           
-            </div>
+
         
     )
 }
+
+// md:grid-cols-2
+// h-[200px] sm:h-[300px] lg:h-[320px]
+// sm:h-[210px] md:h-[220px] lg:h-[240px]
+// h-[200px] sm:h-[210px]  md:h-[240px] lg:h-[200px]
