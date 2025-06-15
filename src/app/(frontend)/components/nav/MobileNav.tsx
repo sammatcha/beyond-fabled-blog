@@ -29,7 +29,7 @@ export default function MobileNav(){
         <nav className="block lg:hidden relative z-20 ">
            
                             {/* x button */}
-                        <button onClick={handleOnClick} className="absolute z-50 mt-10 left-0 px-5  cursor-pointer">
+                        <button onClick={handleOnClick} className="absolute z-50 mt-10 left-0 pl-2 md:pl-5  cursor-pointer">
                             {isOpen ? (
                                 <CircleX className="w-8 text-black "  />  
                             ) : (

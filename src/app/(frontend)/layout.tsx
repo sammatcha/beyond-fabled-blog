@@ -86,9 +86,9 @@ export default function RootLayout({
           ${mPlusRound.variable}
           ${nunito.variable}
           antialiased   `}>
-      <body className={" overflow-y-hidden min-h-screen min-w-screen lg:text-xl "}>
+      <body className={"min-h-screen min-w-full  "}>
         <Nav />
-        <main className="bg-warmBeige min-h-screen min-w-full overflow-y-hidden text-cuteBlue font-bold font-quickSand">
+        <main className="bg-warmBeige min-w-full min-h-screen text-cuteBlue font-bold font-quickSand">
           {children}
         </main>
         
