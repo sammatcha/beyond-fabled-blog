@@ -225,6 +225,7 @@ export interface User {
 export interface Post {
   id: string;
   title: string;
+  pubDate: string;
   featureImage?: (string | null) | Media;
   blocks?: (ContentWithMedia | Text | Image)[] | null;
   category: 'Books' | 'Games' | 'Travel' | 'Lifestyle';
@@ -576,6 +577,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  pubDate?: T;
   featureImage?: T;
   blocks?:
     | T

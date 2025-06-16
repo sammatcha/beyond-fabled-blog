@@ -12,6 +12,11 @@ export const Posts : CollectionConfig = {
             type: 'text',
             required: true,
         },
+          {
+            name: 'pubDate',
+            type: 'date',
+            required: true,
+        },
         {
           name: 'featureImage',
           type: 'upload',
