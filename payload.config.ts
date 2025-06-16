@@ -8,7 +8,10 @@ import { Users } from '@/app/(payload)/collections/Users'
 import { Posts } from '@/app/(payload)/collections/Posts'
 // import {TextBlock} from '@/app/(frontend)/components/blocks/Text/config'
 // import { ImageBlock } from '@/app/blocks/Image/config'
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 
 export default buildConfig({

@@ -1,6 +1,7 @@
 import { Post } from "../../../payload-types";
 import Image from "next/image";
 import Link from "next/link";
+import dateFormat from "../components/dateFormat";
 
 interface PostListPage{
     posts: Post[];
@@ -13,6 +14,8 @@ const filteredPosts = filterBy
 ? posts.filter((post) => post.category === filterBy)
 : posts;
 console.log("posts:", posts);
+
+
     return(
              
                 <div className="grid grid-cols-1  md:grid-cols-3  grid-rows-1 md:grid-rows-3 gap-6 container 
@@ -37,10 +40,13 @@ console.log("posts:", posts);
                                     )}
                                      </div>
                                      {/* Post Content */}
-                                 <div className="text-lg md:text-xl lg:text-2xl flex flex-col items-center">
+                                 <div className="text-lg md:text-xl lg:text-2xl flex flex-col items-center font-karla">
                                    <h2 className="font-bold font-karla">{post.title}</h2> 
+                                   {post.pubDate &&
+                                   <p className="text-xs lg:text-sm text-mdCuteBlue ">{dateFormat({date: post.pubDate})}</p>
+                                    }
                                 </div>
-                               
+                                 
                             </Link>
             ))}
                 </div>
