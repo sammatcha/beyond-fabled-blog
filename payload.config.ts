@@ -9,6 +9,7 @@ import { Posts } from '@/app/(payload)/collections/Posts'
 // import {TextBlock} from '@/app/(frontend)/components/blocks/Text/config'
 // import { ImageBlock } from '@/app/blocks/Image/config'
 import { fileURLToPath } from 'url';
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -43,7 +44,17 @@ export default buildConfig({
     Users,
     Posts
   ],
-  
+    plugins: [
+    vercelBlobStorage({
+      enabled: true, // Optional, defaults to true
+      // Specify which collections should use Vercel Blob
+      collections: {
+        media: true,
+      },
+      // Token provided by Vercel once Blob storage is added to your Vercel project
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    }),
+  ],
 	typescript: {
     outputFile: path.resolve(__dirname, './payload-types.ts'),
   },
