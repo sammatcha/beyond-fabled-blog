@@ -15,6 +15,7 @@
     "@payloadcms/live-preview-react": "3.42.0",
     "@payloadcms/next": "3.42.0",
     "@payloadcms/richtext-lexical": "3.42.0",
+    "@payloadcms/storage-vercel-blob": "3.42.0",
     "@payloadcms/ui": "3.42.0",
     "graphql": "^16.11.0",
     "lucide": "^0.514.0",
