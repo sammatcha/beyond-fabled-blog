@@ -86,6 +86,10 @@ export const Media: CollectionConfig = {
             label: 'Card',
             value: 'card',
           },
+          {
+            label: 'Banner',
+            value: 'banner',
+          },
            {
             label: 'Square',
             value: 'square',
