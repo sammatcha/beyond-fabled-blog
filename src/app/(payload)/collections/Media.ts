@@ -24,6 +24,12 @@ export const Media: CollectionConfig = {
           position: 'centre',
         },
         {
+          name: 'banner',
+          width: 1000,
+          height: 300,
+          position: 'centre'
+        },
+        {
           name: 'card',
           width: 768,
           height: undefined,

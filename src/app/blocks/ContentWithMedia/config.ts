@@ -29,41 +29,6 @@ export const ContentWithMediaBlock: Block = {
         type: 'text',
         required: true,
       },
-      {
-        name: 'displaySize',
-        type: 'select',
-        options: [
-          {
-            label: 'Thumbnail',
-            value: 'thumbnail',
-          },
-         {
-            label: 'Card',
-            value: 'card',
-          },
-          {
-            label: 'Square',
-            value: 'square',
-          },
-         
-          {
-            label: 'Tablet',
-            value: 'tablet',
-          },
-          {
-            label: 'Large',
-            value: 'large',
-          },
-          {
-            label: 'Wide',
-            value: 'wide',
-          }, 
-          {
-            label: 'Full',
-            value: 'full',
-          },
-        ],
-        defaultValue: 'tablet',
-      },
+      
     ]
 }
