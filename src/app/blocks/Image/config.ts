@@ -31,6 +31,10 @@ export const ImageBlock: Block = {
             label: 'Card',
             value: 'card',
           },
+           {
+            label: 'Square',
+            value: 'square',
+          },
           {
             label: 'Tablet',
             value: 'tablet',
