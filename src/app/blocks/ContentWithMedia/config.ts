@@ -42,6 +42,11 @@ export const ContentWithMediaBlock: Block = {
             value: 'card',
           },
           {
+            label: 'Square',
+            value: 'square',
+          },
+         
+          {
             label: 'Tablet',
             value: 'tablet',
           },

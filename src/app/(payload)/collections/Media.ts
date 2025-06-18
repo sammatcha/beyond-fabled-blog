@@ -80,6 +80,10 @@ export const Media: CollectionConfig = {
             label: 'Card',
             value: 'card',
           },
+           {
+            label: 'Square',
+            value: 'square',
+          },
           {
             label: 'Tablet',
             value: 'tablet',
