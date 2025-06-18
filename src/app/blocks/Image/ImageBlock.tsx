@@ -28,7 +28,7 @@ export default function ImageBlock(props:ImageBlockProps) {
           
             <>
             {imageURL && (
-                <Image src={imageURL ?? undefined} alt={image?.alt ?? "Image Block"} width={width} height={height} className="w-full max-w-[768px] h-auto mx-auto object-contain" />
+                <Image src={imageURL ?? undefined} alt={image?.alt ?? "Image Block"} width={width} height={height} className=" h-auto mx-auto object-contain" />
             )}
             </>
  
