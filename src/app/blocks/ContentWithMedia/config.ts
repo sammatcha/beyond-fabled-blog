@@ -23,6 +23,42 @@ export const ContentWithMediaBlock: Block = {
             name: 'textPosition',
             type: 'radio',
             options: ['left', 'right']
-        }
+        },
+          {
+        name: 'alt',
+        type: 'text',
+        required: true,
+      },
+      {
+        name: 'displaySize',
+        type: 'select',
+        options: [
+          {
+            label: 'Thumbnail',
+            value: 'thumbnail',
+          },
+         {
+            label: 'Card',
+            value: 'card',
+          },
+          {
+            label: 'Tablet',
+            value: 'tablet',
+          },
+          {
+            label: 'Large',
+            value: 'large',
+          },
+          {
+            label: 'Wide',
+            value: 'wide',
+          }, 
+          {
+            label: 'Full',
+            value: 'full',
+          },
+        ],
+        defaultValue: 'tablet',
+      },
     ]
 }

@@ -15,9 +15,7 @@ const filteredPosts = filterBy
 : posts;
 console.log("posts:", posts);
 
-
     return(
-             
                 <div className="grid grid-cols-1  md:grid-cols-3  grid-rows-1 md:grid-rows-3 gap-6 container 
                 mt-2 max-w-sm md:max-w-6xl mx-auto px-4 sm:px-6  pt-15 md:pt-20 ">
                 
