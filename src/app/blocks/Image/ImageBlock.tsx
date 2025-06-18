@@ -24,7 +24,7 @@ export default function ImageBlock(props:ImageBlockProps) {
     const width = image?.sizes?.[selectedSize]?.width ?? 500;
     const height = image?.sizes?.[selectedSize]?.height ?? 500;
     return(
-        <div className="min-w-width">
+        <div>
           
             <>
             {imageURL && (
