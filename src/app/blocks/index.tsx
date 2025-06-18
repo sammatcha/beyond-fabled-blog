@@ -16,6 +16,7 @@ export default function RenderBlocks({blocks}: { blocks?: Post['blocks'] | null 
   return (
     <>
       {blocks?.map((block) => {
+         console.log("RenderBlocks blockType:", block.blockType);
         switch (block.blockType) {
         case 'contentWithMedia':
           return(
@@ -26,6 +27,7 @@ export default function RenderBlocks({blocks}: { blocks?: Post['blocks'] | null 
             <TextBlock key={block.id}  {...block} />
           );
         case 'image':
+         
           return (
             typeof block.image === 'object' && block.image !== null
               ? <ImageBlock key={block.id} image={block.image}  />

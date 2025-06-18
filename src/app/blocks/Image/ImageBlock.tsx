@@ -10,7 +10,7 @@ type ImageBlockProps = {
 export default function ImageBlock(props:ImageBlockProps) {
   
     const image = props.image;
-   console.log("Image block:", props);
+  
     const isMedia = 
     image && typeof image === 'object' && 'url' in image;
 
@@ -21,16 +21,22 @@ export default function ImageBlock(props:ImageBlockProps) {
     const selectedSize = image?.displaySize ?? "tablet";
     console.log("Selected Size:", selectedSize);
     const imageURL = image?.sizes?.[selectedSize]?.url ?? image?.url;
+    console.log("imageURL", imageURL)
+    console.log("image.sizes:", image?.sizes);
     const width = image?.sizes?.[selectedSize]?.width ?? 500;
     const height = image?.sizes?.[selectedSize]?.height ?? 500;
+
     return(
         <div>
-          
-            <>
             {imageURL && (
-                <Image src={imageURL ?? undefined} alt={image?.alt ?? "Image Block"} width={width} height={height} className=" h-auto mx-auto object-contain" />
+                <Image src={imageURL ?? undefined} 
+                alt={image?.alt ?? "Image Block"} 
+                width={width} height={height} 
+                className=" h-auto mx-auto object-contain" 
+                
+                />
             )}
-            </>
+         
  
         </div>
     )

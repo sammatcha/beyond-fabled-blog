@@ -23,7 +23,7 @@ const {docs} = await payload.find({
     draft: true, //optional, if you want to fetch draft posts
 })
 const data = docs?.[0]; //entire post object
-console.log('allPost:', data); 
+// console.log('allPost:', data); 
  return (
     <div className="p-6">
        <RefreshRouteOnSave />
