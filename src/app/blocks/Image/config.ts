@@ -11,17 +11,18 @@ export const ImageBlock: Block = {
         {
             type: 'upload',
             name: 'image',
-            relationTo: 'media'
+            relationTo: 'media',
+         
         },
-          {
+        {
         name: 'alt',
         type: 'text',
         required: true,
-      },
-      {
+        },
+        {
         name: 'displaySize',
         type: 'select',
-        options: [
+          options: [
           {
             label: 'Thumbnail',
             value: 'thumbnail',

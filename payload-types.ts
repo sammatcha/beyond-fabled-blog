@@ -268,6 +268,8 @@ export interface ContentWithMedia {
   } | null;
   image?: (string | null) | Media;
   textPosition?: ('left' | 'right') | null;
+  alt: string;
+  displaySize?: ('thumbnail' | 'card' | 'tablet' | 'large' | 'wide' | 'full') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'contentWithMedia';
@@ -302,6 +304,8 @@ export interface Text {
  */
 export interface Image {
   image?: (string | null) | Media;
+  alt: string;
+  displaySize?: ('thumbnail' | 'card' | 'tablet' | 'large' | 'wide' | 'full') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'image';
@@ -612,6 +616,8 @@ export interface ContentWithMediaSelect<T extends boolean = true> {
   content?: T;
   image?: T;
   textPosition?: T;
+  alt?: T;
+  displaySize?: T;
   id?: T;
   blockName?: T;
 }
@@ -630,6 +636,8 @@ export interface TextSelect<T extends boolean = true> {
  */
 export interface ImageSelect<T extends boolean = true> {
   image?: T;
+  alt?: T;
+  displaySize?: T;
   id?: T;
   blockName?: T;
 }
