@@ -1,5 +1,4 @@
-import type {Text } from "../../../../payload-types";
-import { convertLexicalToHTML } from '@payloadcms/richtext-lexical/html';
+
 import { RichText } from "@/app/components/RichText";
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 

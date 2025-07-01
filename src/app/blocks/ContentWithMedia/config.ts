@@ -19,7 +19,7 @@ export const ContentWithMediaBlock: Block = {
             name: 'content',
             type: 'richText',
             editor: lexicalEditor({
-                    features: ({ defaultFeatures, rootFeatures }) => [
+                    features: ({ defaultFeatures }) => [
                     ...defaultFeatures,
                     FixedToolbarFeature(),
                     HeadingFeature(),

@@ -3,9 +3,9 @@ import { RichText as RichTextConverter } from '@payloadcms/richtext-lexical/reac
 import { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 import { jsxConverter } from './converters/index'
 
-type Props = {
-  data: SerializedEditorState
-} & React.HTMLAttributes<HTMLDivElement>
+// type Props = {
+//   data: SerializedEditorState
+// } & React.HTMLAttributes<HTMLDivElement>
 
 interface RichTextProps extends React.HTMLAttributes<HTMLDivElement> {
   data: SerializedEditorState

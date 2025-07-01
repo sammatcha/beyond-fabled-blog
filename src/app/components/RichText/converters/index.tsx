@@ -5,7 +5,6 @@ import { JSXConvertersFunction, LinkJSXConverter } from '@payloadcms/richtext-le
 import { internalDocToHref } from './internalLink'
 import { ContentWithMediaBlock } from '@/app/blocks/ContentWithMedia/ContentWithMediaBlock';
 import { ContentWithMedia, Image as ImageBlockType } from '../../../../../payload-types';
-import { RichText } from "@/app/components/RichText";
 import ImageBlock from '@/app/blocks/Image/ImageBlock';
 import { headingConverter } from './headingConverter';
 import { textConverter } from './textConverter';
@@ -13,23 +12,12 @@ import TextBlock from '@/app/blocks/Text/TextBlock';
 
 // primary converter
 
-// type ContentWithMediaProps = {
-//   block: {
-//     image: {
-//       url?: string;
-//       alt?: string;
-//       caption?: string;
-//     };
-//     textPosition?: string;
+// type ImageProps = {
+//   image: {
+//     url?: string;
+//     alt?: string;
 //   }
 // }
-
-type ImageProps = {
-  image: {
-    url?: string;
-    alt?: string;
-  }
-}
 
 type TextProps = {
   content: SerializedEditorState
@@ -37,9 +25,9 @@ type TextProps = {
 
 type NodeTypes = DefaultNodeTypes | SerializedBlockNode<ImageBlockType> | SerializedBlockNode<TextProps> | SerializedBlockNode<ContentWithMedia>;
 
-type BlockNode<T> = {
-  fields: T;
-}
+// type BlockNode<T> = {
+//   fields: T;
+// }
 
 export const jsxConverter: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) => ({
   ...defaultConverters,
