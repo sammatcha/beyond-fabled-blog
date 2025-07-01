@@ -1,5 +1,4 @@
 import type {ContentWithMedia } from "../../../../payload-types";
-import { convertLexicalToHTML } from '@payloadcms/richtext-lexical/html';
 import Image from "next/image";
 import { RichText } from "@/app/components/RichText";
 
