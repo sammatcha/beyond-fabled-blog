@@ -3,6 +3,7 @@ import config from '@payload-config';
 import RenderBlocks from "../../../blocks/index"; 
 
 import { RefreshRouteOnSave } from "../../../components/RefreshRouteOnSave"
+import { RichText } from "@/app/components/RichText";
 
 // INDIVIDUAL POST PAGE
 export default async function PostPage({params
@@ -24,12 +25,16 @@ const {docs} = await payload.find({
 })
 const data = docs?.[0]; //entire post object
 // console.log('allPost:', data); 
+ console.log('data content:', data.content)
  return (
+   
     <div className="p-6">
        <RefreshRouteOnSave />
       <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
      
       <RenderBlocks  blocks={data.blocks}  />
+      {data.content && <RichText data={data.content} />}
+      
     </div>
   )
 }

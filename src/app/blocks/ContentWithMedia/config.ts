@@ -1,4 +1,10 @@
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import {
+  lexicalEditor,
+  FixedToolbarFeature,
+  TextStateFeature,
+  defaultColors,
+  HeadingFeature,
+} from '@payloadcms/richtext-lexical'
 import { Block } from "payload";
 
 export const ContentWithMediaBlock: Block = {
@@ -12,7 +18,63 @@ export const ContentWithMediaBlock: Block = {
         {
             name: 'content',
             type: 'richText',
-            editor: lexicalEditor(),
+            editor: lexicalEditor({
+                    features: ({ defaultFeatures, rootFeatures }) => [
+                    ...defaultFeatures,
+                    FixedToolbarFeature(),
+                    HeadingFeature(),
+                    TextStateFeature({
+                        state: {
+                          color: {
+                            ...defaultColors.text,
+                          },
+                          background: {
+                            ...defaultColors.background,
+                          },
+                          size: {
+                            large: {
+                              label: 'Large Text',
+                              css: {
+                                'font-size': 'large',
+                              },
+                            },
+                          },
+                          fontWeight: {
+                            bolder: {
+                              label: 'Bolder',
+                              css: {
+                                'font-weight': 'bolder',
+                              },
+                            },
+                          },
+                          underline: {
+                            solid: {
+                              label: 'Solid',
+                              css: {
+                                'text-decoration': 'underline',
+                                'text-underline-offset': '4px',
+                              },
+                            },
+                            dashed: {
+                              label: 'Dashed',
+                              css: {
+                                'text-decoration': 'underline dashed',
+                                'text-underline-offset': '4px',
+                              },
+                            },
+                            'red-line-through': {
+                              label: 'Red Line Through',
+                              css: {
+                                'text-decoration': 'line-through',
+                                'text-decoration-style': 'dotted',
+                                'text-decoration-color': 'red',
+                              },
+                            },
+                          },
+                        },
+                      }),
+                    ],
+                  }),
         },
         {
             name: 'image',
@@ -24,11 +86,11 @@ export const ContentWithMediaBlock: Block = {
             type: 'radio',
             options: ['left', 'right']
         },
-          {
+        {
         name: 'alt',
         type: 'text',
         required: true,
-      },
+        },
       
     ]
 }

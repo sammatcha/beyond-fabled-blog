@@ -130,7 +130,7 @@ export interface UserAuthOperations {
 export interface Media {
   id: string;
   alt: string;
-  displaySize?: ('thumbnail' | 'card' | 'tablet' | 'large' | 'wide' | 'full') | null;
+  displaySize?: ('thumbnail' | 'card' | 'square' | 'tablet' | 'large' | 'wide' | 'full') | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -152,6 +152,14 @@ export interface Media {
       filename?: string | null;
     };
     square?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    banner?: {
       url?: string | null;
       width?: number | null;
       height?: number | null;
@@ -228,6 +236,21 @@ export interface Post {
   pubDate: string;
   featureImage?: (string | null) | Media;
   blocks?: (ContentWithMedia | Text | Image)[] | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   category: 'Books' | 'Games' | 'Travel' | 'Lifestyle';
   keywords?:
     | {
@@ -269,7 +292,6 @@ export interface ContentWithMedia {
   image?: (string | null) | Media;
   textPosition?: ('left' | 'right') | null;
   alt: string;
-  displaySize?: ('thumbnail' | 'card' | 'tablet' | 'large' | 'wide' | 'full') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'contentWithMedia';
@@ -279,7 +301,7 @@ export interface ContentWithMedia {
  * via the `definition` "Text".
  */
 export interface Text {
-  content: {
+  content?: {
     root: {
       type: string;
       children: {
@@ -293,7 +315,7 @@ export interface Text {
       version: number;
     };
     [k: string]: unknown;
-  };
+  } | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'text';
@@ -305,7 +327,7 @@ export interface Text {
 export interface Image {
   image?: (string | null) | Media;
   alt: string;
-  displaySize?: ('thumbnail' | 'card' | 'tablet' | 'large' | 'wide' | 'full') | null;
+  displaySize?: ('thumbnail' | 'card' | 'square' | 'tablet' | 'large' | 'wide' | 'full') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'image';
@@ -508,6 +530,16 @@ export interface MediaSelect<T extends boolean = true> {
               filesize?: T;
               filename?: T;
             };
+        banner?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
         card?:
           | T
           | {
@@ -590,6 +622,7 @@ export interface PostsSelect<T extends boolean = true> {
         text?: T | TextSelect<T>;
         image?: T | ImageSelect<T>;
       };
+  content?: T;
   category?: T;
   keywords?:
     | T
@@ -617,7 +650,6 @@ export interface ContentWithMediaSelect<T extends boolean = true> {
   image?: T;
   textPosition?: T;
   alt?: T;
-  displaySize?: T;
   id?: T;
   blockName?: T;
 }
