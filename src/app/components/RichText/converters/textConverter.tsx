@@ -1,12 +1,23 @@
  import { JSXConverters } from '@payloadcms/richtext-lexical/react'
 import { SerializedTextNode } from '@payloadcms/richtext-lexical'
 import { defaultColors } from '@payloadcms/richtext-lexical/client'
-import type {
-  StateValues,
-  TextStateFeatureProps,
-} from 'node_modules/@payloadcms/richtext-lexical/dist/features/textState/feature.server'
 
-const colorState: TextStateFeatureProps['state'] = {
+type StateValues = Record<string, {
+  label: string;
+  css: React.CSSProperties;
+}>
+
+type TextStateFeatureState = {
+  color?: StateValues;
+  background?: StateValues;
+  size?: StateValues;
+  fontWeight?: StateValues;
+  underline?: StateValues;
+  [key: string]: StateValues | undefined;
+}
+
+
+const colorState: TextStateFeatureState = {
   color: {
     ...defaultColors.text,
   },
@@ -14,7 +25,7 @@ const colorState: TextStateFeatureProps['state'] = {
     'large': {
       label: 'Large Text',
       css: {
-        'font-size': 'large',
+        'fontSize': 'large',
       },
     },
   },
@@ -22,31 +33,31 @@ const colorState: TextStateFeatureProps['state'] = {
     'bolder': {
       label: 'Bolder',
       css: {
-        'font-weight': 'bolder',
+        'fontWeight': 'bolder',
       },
     },
   },
   background: {
-    ...defaultColors.background,
+    ...(defaultColors.background as any),
   },
   underline: {
     'solid': {
       label: 'Solid',
-      css: { 'text-decoration': 'underline', 'text-underline-offset': '4px' },
+      css: { 'textDecoration': 'underline', 'textUnderlineOffset': '4px' },
     },
     'dashed': {
       label: 'Dashed',
       css: {
-        'text-decoration': 'underline dashed',
-        'text-underline-offset': '4px',
+        'textDecoration': 'underline dashed',
+        'textUnderlineOffset': '4px',
       },
     },
     'red-line-through': {
       label: 'Red Line Through',
       css: {
-        'text-decoration': 'line-through',
-        'text-decoration-style': 'dotted',
-        'text-decoration-color': 'red',
+        'textDecoration': 'line-through',
+        'textDecorationStyle': 'dotted',
+        'textDecorationColor': 'red',
       },
     },
   },
