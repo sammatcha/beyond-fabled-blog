@@ -38,7 +38,7 @@ const colorState: TextStateFeatureState = {
     },
   },
   background: {
-    ...(defaultColors.background as any),
+    ...(defaultColors.background as Record<string, { label: string; css: React.CSSProperties }>),
   },
   underline: {
     'solid': {
