@@ -3,7 +3,9 @@ import { ContentWithMediaBlock } from "../../blocks/ContentWithMedia/config";
 import { ImageBlock } from "../../blocks/Image/config";
 import { TextBlock } from "../../blocks/Text/config";
 import slugify from "slugify";
-// import { Content } from "next/font/google";
+import { BlocksFeature, FixedToolbarFeature, TextStateFeature, defaultColors, lexicalEditor } from "@payloadcms/richtext-lexical";
+
+
 export const Posts : CollectionConfig = {
     slug: 'posts',
     fields: [
@@ -28,6 +30,69 @@ export const Posts : CollectionConfig = {
             type: 'blocks',
             blocks: [ContentWithMediaBlock, TextBlock, ImageBlock],
         },
+        {
+      name: "content",
+      type: "richText",
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          BlocksFeature({
+            blocks: [ContentWithMediaBlock, TextBlock, ImageBlock],
+          }),
+          FixedToolbarFeature(),
+          TextStateFeature({
+            state: {
+              color: {
+                ...defaultColors.text,
+              },
+              background: {
+                ...defaultColors.background
+              },
+              size: {
+                large: {
+                  label: "Large Text",
+                  css: {
+                    "font-size": "large",
+                  },
+                },
+              },
+              fontWeight: {
+                bolder: {
+                  label: "Bolder",
+                  css: {
+                    "font-weight": "bolder",
+                  },
+                },
+              },
+              underline: {
+                solid: {
+                  label: "Solid",
+                  css: {
+                    "text-decoration": "underline",
+                    "text-underline-offset": "4px",
+                  },
+                },
+                dashed: {
+                  label: "Dashed",
+                  css: {
+                    "text-decoration": "underline dashed",
+                    "text-underline-offset": "4px",
+                  },
+                },
+                "red-line-through": {
+                  label: "Red Line Through",
+                  css: {
+                    "text-decoration": "line-through",
+                    "text-decoration-style": "dotted",
+                    "text-decoration-color": "red",
+                  },
+                },
+              },
+            },
+          }),
+        ],
+      }),
+    },
         {
           name: 'category',
           type: 'select',
@@ -85,15 +150,25 @@ export const Posts : CollectionConfig = {
           },
     ],
       versions: {
-        drafts: {
-      autosave: 
-      {
-      interval: 100, // We set this interval for optimal live preview
+    drafts: {
+      schedulePublish: true,
     },
-    schedulePublish: true,
   },
-  maxPerDoc: 50,
-    },
+  access: {
+    read: () => true,
+    update: () => true,
+    create: () => true,
+  },
 }
 
 
+//  versions: {
+//         drafts: {
+//       autosave: 
+//       {
+//       interval: 100, // We set this interval for optimal live preview
+//     },
+//     schedulePublish: true,
+//   },
+//   maxPerDoc: 50,
+//     },

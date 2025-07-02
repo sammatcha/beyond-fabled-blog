@@ -54,7 +54,3 @@ const filteredPosts = filterBy
     )
 }
 
-// md:grid-cols-2
-// h-[200px] sm:h-[300px] lg:h-[320px]
-// sm:h-[210px] md:h-[220px] lg:h-[240px]
-// h-[200px] sm:h-[210px]  md:h-[240px] lg:h-[200px]
