@@ -5,6 +5,9 @@ import {
   TextStateFeature,
   defaultColors,
   HeadingFeature,
+  UnorderedListFeature,
+  OrderedListFeature,
+  ChecklistFeature,
 } from '@payloadcms/richtext-lexical'
 
 export const TextBlock: Block = {
@@ -23,6 +26,9 @@ export const TextBlock: Block = {
             ...defaultFeatures,
           FixedToolbarFeature(),
           HeadingFeature(),
+          UnorderedListFeature(),
+          OrderedListFeature(),
+          ChecklistFeature(),
           TextStateFeature({
             state: {
               color: {
