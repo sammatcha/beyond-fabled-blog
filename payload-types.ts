@@ -130,7 +130,7 @@ export interface UserAuthOperations {
 export interface Media {
   id: string;
   alt: string;
-  displaySize?: ('thumbnail' | 'card' | 'square' | 'tablet' | 'large' | 'wide' | 'full') | null;
+  displaySize?: ('thumbnail' | 'card' | 'banner' | 'square' | 'tablet' | 'large' | 'wide' | 'full') | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -327,7 +327,7 @@ export interface Text {
 export interface Image {
   image?: (string | null) | Media;
   alt: string;
-  displaySize?: ('thumbnail' | 'card' | 'square' | 'tablet' | 'large' | 'wide' | 'full') | null;
+  displaySize?: ('thumbnail' | 'card' | 'banner' | 'square' | 'tablet' | 'large' | 'wide' | 'full') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'image';

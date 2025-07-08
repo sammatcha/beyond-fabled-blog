@@ -9,6 +9,8 @@ import ImageBlock from '@/app/blocks/Image/ImageBlock';
 import { headingConverter } from './headingConverter';
 import { textConverter } from './textConverter';
 import TextBlock from '@/app/blocks/Text/TextBlock';
+import { list } from 'postcss'
+import { listConverter } from './listConverter'
 
 // primary converter
 
@@ -34,6 +36,8 @@ export const jsxConverter: JSXConvertersFunction<NodeTypes> = ({ defaultConverte
   ...LinkJSXConverter({ internalDocToHref }),
   ...headingConverter,
   ...textConverter,
+  ...listConverter,
+
 
   blocks: {
       contentWithMedia: ({ node }: { node: SerializedBlockNode<ContentWithMedia> }) => (
