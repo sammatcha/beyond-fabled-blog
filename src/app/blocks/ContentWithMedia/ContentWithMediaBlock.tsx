@@ -14,6 +14,7 @@ export function ContentWithMediaBlock(props: ContentWithMedia) {
 
    if (props.textPosition === 'left') {
         return(
+          
             <div className="post-div">
             
             {props.content && <RichText data={props.content!}/>}  
@@ -21,6 +22,7 @@ export function ContentWithMediaBlock(props: ContentWithMedia) {
             (<Image src={imageURL || ""} alt={image.alt || ""} width={width || 360} height={height || 360}/>)
             }
             </div>
+          
         )
 
    } else if (props.textPosition === 'right') {

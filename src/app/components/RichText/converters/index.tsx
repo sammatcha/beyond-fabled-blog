@@ -42,9 +42,13 @@ export const jsxConverter: JSXConvertersFunction<NodeTypes> = ({ defaultConverte
       contentWithMedia: ({ node }: { node: SerializedBlockNode<ContentWithMedia> }) => (
       <ContentWithMediaBlock {...node.fields} />
     ),
-    image: ({ node }: { node: SerializedBlockNode<ImageBlockType> }) => (
-      <ImageBlock image={node.fields.image} />
-    ),
+    image: ({ node }: { node: SerializedBlockNode<ImageBlockType> }) => {
+      const image =
+        typeof node.fields.image === 'object' && node.fields.image !== null
+          ? node.fields.image
+          : undefined;
+      return <ImageBlock image={image} />;
+    },
     text: ({ node }: { node: SerializedBlockNode<TextProps> }) => (
     <TextBlock {...node.fields} />),
 

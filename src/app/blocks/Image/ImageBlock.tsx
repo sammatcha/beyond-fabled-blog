@@ -2,11 +2,22 @@ import { Media } from "../../../../payload-types";
 import Image from "next/image";
 
 
-type ImageBlockProps = {
-  image:string | Media | null | undefined;
+
+
+type ImageBlockType = {
+  image?: Media & {
+    displaySize?: 'thumbnail' | 'card' | 'banner' | 'square' | 'tablet' | 'large' | 'wide' | 'full' | null | undefined;
+    sizes?: {
+      [key: string]: {
+        url?: string | null;
+        width?: number | null;
+        height?: number | null;
+      };
+    };
+  };
 };
 
-export default function ImageBlock(props:ImageBlockProps) {
+export default function ImageBlock(props: ImageBlockType) {
   
     const image = props.image;
   
