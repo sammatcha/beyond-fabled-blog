@@ -27,12 +27,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-a {
+.post-div a {
   color:#2563eb;
   text-decoration: underline;
   cursor: pointer;
 }
-a:hover {
+.post-div a:hover {
   color:  #1d4ed8; 
 }
 
