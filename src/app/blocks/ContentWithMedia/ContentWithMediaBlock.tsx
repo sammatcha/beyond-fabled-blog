@@ -14,22 +14,23 @@ export function ContentWithMediaBlock(props: ContentWithMedia) {
 
    if (props.textPosition === 'left') {
         return(
-            <section>
+            <div className="post-div">
+            
             {props.content && <RichText data={props.content!}/>}  
             {image && 
             (<Image src={imageURL || ""} alt={image.alt || ""} width={width || 360} height={height || 360}/>)
             }
-            </section>
+            </div>
         )
 
    } else if (props.textPosition === 'right') {
         return(
-             <section>
+             <div className="post-div">
                {props.content && <RichText data={props.content!}/>}   
                {image && 
                     (<Image src={imageURL || ""} alt={image.alt || ""} width={width || 360} height={height || 360}/>)
                }
-            </section>
+            </div>
         )
    }
 

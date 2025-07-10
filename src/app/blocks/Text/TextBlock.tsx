@@ -16,7 +16,7 @@ export default function TextBlock(props: TextBlockProps) {
   
 
   return (
-    <div>
+    <div className="post-div" id={props.id}>
       <RichText data={props.content!}/>
     </div>
   )
