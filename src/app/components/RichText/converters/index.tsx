@@ -43,10 +43,12 @@ export const jsxConverter: JSXConvertersFunction<NodeTypes> = ({ defaultConverte
       <ContentWithMediaBlock {...node.fields} />
     ),
     image: ({ node }: { node: SerializedBlockNode<ImageBlockType> }) => {
+      console.log("Converter received node.fields.image:", node.fields.image);
       const image =
         typeof node.fields.image === 'object' && node.fields.image !== null
           ? node.fields.image
           : undefined;
+           console.log("Parsed image to pass to ImageBlock:", image);
       return <ImageBlock image={image} />;
     },
     text: ({ node }: { node: SerializedBlockNode<TextProps> }) => (
