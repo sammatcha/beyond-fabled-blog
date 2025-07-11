@@ -13,12 +13,6 @@ import { listConverter } from './listConverter'
 
 // primary converter
 
-// type ImageProps = {
-//   image: {
-//     url?: string;
-//     alt?: string;
-//   }
-// }
 
 type TextProps = {
   content: SerializedEditorState
@@ -26,9 +20,6 @@ type TextProps = {
 
 type NodeTypes = DefaultNodeTypes | SerializedBlockNode<ImageBlockType> | SerializedBlockNode<TextProps> | SerializedBlockNode<ContentWithMedia>;
 
-// type BlockNode<T> = {
-//   fields: T;
-// }
 
 export const jsxConverter: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) => ({
   ...defaultConverters,
