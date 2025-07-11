@@ -18,6 +18,7 @@ type ImageBlockType = {
 };
 
 export default function ImageBlock(props: ImageBlockType) {
+     console.log("ImageBlock received image:", props.image);
   
     const image = props.image;
   
