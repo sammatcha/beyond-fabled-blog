@@ -101,10 +101,6 @@ export const Media: CollectionConfig = {
             label: 'Wide',
             value: 'wide',
           }, 
-          {
-            label: 'Full',
-            value: 'full',
-          },
         ],
         defaultValue: 'tablet',
       },
