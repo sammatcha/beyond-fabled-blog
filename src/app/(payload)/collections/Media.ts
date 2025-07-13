@@ -12,8 +12,8 @@ export const Media: CollectionConfig = {
       imageSizes: [
         {
           name: 'thumbnail',
-          width: 200,
-          height: 200, // square thumbnail
+          width: 150,
+          height: 150, // square thumbnail
           position: 'centre',
         
         },
@@ -24,18 +24,12 @@ export const Media: CollectionConfig = {
           position: 'centre',
         },
         {
-          name: 'banner',
-          width: 1000,
-          height: 300,
-          position: 'centre'
-        },
-        {
           name: 'card',
-          width: 768,
-          height: undefined,
+          width: 600,
+          height: 400,
         
         },
-        {
+         {
           name: 'tablet',
           width: 1024,
           // By specifying `undefined` or leaving a height undefined,
@@ -46,22 +40,23 @@ export const Media: CollectionConfig = {
           position: 'centre',
         },
         {
-          //full width image
+          name: 'banner',
+          width: 1200,
+          height: 300,
+          position: 'centre'
+        },
+        
+       
+        {
           name: 'large',
-          width: 1300,
-          height: undefined,
+          width: 1920,
+          height: 1080,
           position: 'centre',
         },
         {
           name: 'wide',
-          width: 1200,
-          height: 600,
-          position: 'centre',
-        },
-        {
-          name: 'full',
-          width: 1920,
-          height: undefined,
+          width: 1280,
+          height: 720,
           position: 'centre',
         },
       ],
