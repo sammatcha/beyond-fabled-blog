@@ -8,6 +8,7 @@ import {
   UnorderedListFeature,
   OrderedListFeature,
   ChecklistFeature,
+  LinkFeature,
 } from '@payloadcms/richtext-lexical'
 
 export const TextBlock: Block = {
@@ -29,6 +30,7 @@ export const TextBlock: Block = {
           UnorderedListFeature(),
           OrderedListFeature(),
           ChecklistFeature(),
+          LinkFeature(),
           TextStateFeature({
             state: {
               color: {

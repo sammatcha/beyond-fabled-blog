@@ -3,7 +3,7 @@ import { ContentWithMediaBlock } from "../../blocks/ContentWithMedia/config";
 import { ImageBlock } from "../../blocks/Image/config";
 import { TextBlock } from "../../blocks/Text/config";
 import slugify from "slugify";
-import { BlocksFeature, FixedToolbarFeature, TextStateFeature, defaultColors, lexicalEditor } from "@payloadcms/richtext-lexical";
+import { BlocksFeature, FixedToolbarFeature, LinkFeature, TextStateFeature, defaultColors, lexicalEditor } from "@payloadcms/richtext-lexical";
 
 
 export const Posts : CollectionConfig = {
@@ -40,6 +40,7 @@ export const Posts : CollectionConfig = {
             blocks: [ContentWithMediaBlock, TextBlock, ImageBlock],
           }),
           FixedToolbarFeature(),
+          LinkFeature(),
           TextStateFeature({
             state: {
               color: {

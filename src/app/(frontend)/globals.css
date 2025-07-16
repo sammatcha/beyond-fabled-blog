@@ -14,12 +14,12 @@
 
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
@@ -27,12 +27,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.post-div a {
-  color:#2563eb;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.post-div a:hover {
-  color:  #1d4ed8; 
+
+
+.img-container {
+  max-height: max-content;
+  max-width: 768px;
+  overflow: hidden;
+
 }
 
+.img-container img {
+  height: auto;
+  width: 100%;
+  display:block;
+
+}

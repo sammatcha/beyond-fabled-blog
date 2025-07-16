@@ -14,12 +14,13 @@ export function ContentWithMediaBlock(props: ContentWithMedia) {
 
    if (props.textPosition === 'left') {
         return(
-          
            <section>
-            
+          
             {props.content && <RichText data={props.content!}/>}  
             {image && 
-            (<Image src={imageURL || ""} alt={image.alt || ""} width={width || 360} height={height || 360}/>)
+            <div className="img-container object-contain">
+            <Image src={imageURL || ""} alt={image.alt || ""} width={width || 360} height={height || 360}/>
+            </div>
             }
            </section>
           
@@ -30,7 +31,9 @@ export function ContentWithMediaBlock(props: ContentWithMedia) {
             <section>
                {props.content && <RichText data={props.content!}/>}   
                {image && 
-                    (<Image src={imageURL || ""} alt={image.alt || ""} width={width || 360} height={height || 360}/>)
+                <div className="img-container object-contain">
+                    <Image src={imageURL || ""} alt={image.alt || ""} width={width || 360} height={height || 360}/>
+               </div>
                }
             </section>
         )
