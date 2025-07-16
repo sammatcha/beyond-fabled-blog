@@ -7,6 +7,7 @@ import {
   UnorderedListFeature,
   OrderedListFeature,
   ChecklistFeature,
+  LinkFeature,
 } from '@payloadcms/richtext-lexical'
 import { Block } from "payload";
 
@@ -29,6 +30,19 @@ export const ContentWithMediaBlock: Block = {
                     UnorderedListFeature(),
                     OrderedListFeature(),
                     ChecklistFeature(),
+                    LinkFeature({
+  fields: ({ defaultFields }) => [
+    ...defaultFields,
+    {
+      name: 'rel',
+      type: 'select',
+      options: ['noopener', 'noreferrer', 'nofollow'],
+    },
+  ],
+  enabledCollections: [ 'posts'], // Collections for internal links
+  maxDepth: 2, // Population depth for internal links
+  // disableAutoLinks: false, // Allow auto-conversion of URLs
+}),
                     TextStateFeature({
                         state: {
                           color: {

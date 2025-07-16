@@ -36,14 +36,16 @@ export default function ImageBlock(props: ImageBlockType) {
     const height = image?.sizes?.[selectedSize]?.height ?? 500;
 
     return(
-        <div>
+        <div className="img-container"  >
             {imageURL && (
+              <div className="img-container object-contain">
                 <Image src={imageURL ?? undefined} 
                 alt={image?.alt ?? "Image Block"} 
                 width={width} height={height} 
-                className=" h-full w-full object-contain" 
+                className="object-contain" 
                 
                 />
+              </div>
             )}
          
  

@@ -6,8 +6,6 @@ import { buildConfig } from 'payload'
 import { Media } from '@/app/(payload)/collections/Media'
 import { Users } from '@/app/(payload)/collections/Users'
 import { Posts } from '@/app/(payload)/collections/Posts'
-// import {TextBlock} from '@/app/(frontend)/components/blocks/Text/config'
-// import { ImageBlock } from '@/app/blocks/Image/config'
 import { fileURLToPath } from 'url';
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
@@ -53,7 +51,6 @@ export default buildConfig({
         
       },
       clientUploads: true, // Optional, defaults to true
-      // Token provided by Vercel once Blob storage is added to your Vercel project
       token: process.env.BLOB_READ_WRITE_TOKEN,
     }),
   ],
@@ -62,15 +59,10 @@ export default buildConfig({
   },
   // Your Payload secret - should be a complex and secure string, unguessable
   secret: process.env.PAYLOAD_SECRET || '',
-  // Whichever Database Adapter you're using should go here
-  // Mongoose is shown as an example, but you can also use Postgres
+  
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  // If you want to resize images, crop, set focal point, etc.
-  // make sure to install it and pass it to the config.
-  // This is optional - if you don't need to do these things,
-  // you don't need it!
   sharp,
 })
 

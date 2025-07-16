@@ -51,10 +51,6 @@ export const ImageBlock: Block = {
             label: 'Wide',
             value: 'wide',
           }, 
-          {
-            label: 'Full',
-            value: 'full',
-          },
         ],
         defaultValue: 'tablet',
       },
