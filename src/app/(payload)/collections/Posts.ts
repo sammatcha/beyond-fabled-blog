@@ -4,10 +4,25 @@ import { ImageBlock } from "../../blocks/Image/config";
 import { TextBlock } from "../../blocks/Text/config";
 import slugify from "slugify";
 import { BlocksFeature, FixedToolbarFeature, LinkFeature, TextStateFeature, defaultColors, lexicalEditor } from "@payloadcms/richtext-lexical";
+import axios from "axios";
 
 
 export const Posts : CollectionConfig = {
     slug: 'posts',
+    hooks: {
+      afterChange:[
+        async ({doc, operation, req}: {doc:any, operation: string, req:any})=> {
+          if (operation === 'create' || operation === 'update'){
+            if(doc._status === 'published'){
+              await axios.post('https://api.vercel.com/v1/integrations/deploy/prj_NcFlS7JP3sZAa9pWTy42VfozmWeb/845h1z8nkG')
+               console.log("Post saved:", doc.title, "Operation:", operation);
+          }
+        }
+        console.log("status:", doc._status);
+         return doc;
+        }
+      ]
+    },
     fields: [
         {
             name: 'title',
@@ -163,13 +178,3 @@ export const Posts : CollectionConfig = {
 }
 
 
-//  versions: {
-//         drafts: {
-//       autosave: 
-//       {
-//       interval: 100, // We set this interval for optimal live preview
-//     },
-//     schedulePublish: true,
-//   },
-//   maxPerDoc: 50,
-//     },
