@@ -11,10 +11,10 @@ export const Posts : CollectionConfig = {
     slug: 'posts',
     hooks: {
       afterChange:[
-        async ({doc, operation, req}: {doc:any, operation: string, req:any})=> {
+        async ({doc, operation}: {doc:Record<string, unknown>, operation: string})=> {
           if (operation === 'create' || operation === 'update'){
             if(doc._status === 'published'){
-              await axios.post('https://api.vercel.com/v1/integrations/deploy/prj_NcFlS7JP3sZAa9pWTy42VfozmWeb/845h1z8nkG')
+              await axios.post(process.env.VERCEL_DEPLOY_HOOK || '')
                console.log("Post saved:", doc.title, "Operation:", operation);
           }
         }
