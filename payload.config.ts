@@ -16,7 +16,7 @@ const __dirname = path.dirname(__filename);
 export default buildConfig({
   admin: {
     livePreview: {
-      url: ({data}) => {
+      url: ({ data }: { data: { slug?: string } }): string => {
         if (!data?.slug) return '/';
         return `/blog/${data.slug}`;
       },
