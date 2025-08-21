@@ -113,7 +113,7 @@ export const Posts : CollectionConfig = {
           name: 'category',
           type: 'select',
           options: [
-          'Books', 'Games', 'Travel', 'Lifestyle'
+          'Books', 'Games', 'Travel', 'Hobbies'
           ],
           required: true,
         },

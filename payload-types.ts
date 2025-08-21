@@ -250,7 +250,7 @@ export interface Post {
     };
     [k: string]: unknown;
   } | null;
-  category: 'Books' | 'Games' | 'Travel' | 'Lifestyle';
+  category: 'Books' | 'Games' | 'Travel' | 'Hobbies';
   keywords?:
     | {
         tag?: string | null;
