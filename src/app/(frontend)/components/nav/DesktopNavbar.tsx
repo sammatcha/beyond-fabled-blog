@@ -1,11 +1,11 @@
 import Link from "next/link"
 
 const links = [
-    { id: 0, name: "Books", link: "/books"},
-    { id: 1, name: "Games", link: "/games"},
+   { id: 0, name: "My Hobbies", link: "/hobbies"},
+    // { id: 1, name: "Games", link: "/games"},
     { id: 2, name: "Home", link: "/", logo: "bf"},
     { id: 3, name: "Travel", link: "/travel"},
-    { id: 4, name: "Lifestyle", link: "/lifestyle"},
+    { id: 4, name: "Books", link: "/books"},
 ]
 export default function Navbar(){
     
