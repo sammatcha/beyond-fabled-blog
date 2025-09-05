@@ -1,5 +1,5 @@
 'use client'
-import {  SerializedBlockNode, SerializedLinkNode } from '@payloadcms/richtext-lexical'
+import {  SerializedBlockNode } from '@payloadcms/richtext-lexical'
 import { JSXConvertersFunction, LinkJSXConverter } from '@payloadcms/richtext-lexical/react'
 import { internalDocToHref } from './internalLink'
 import { ContentWithMediaBlock } from '@/app/blocks/ContentWithMedia/ContentWithMediaBlock';
