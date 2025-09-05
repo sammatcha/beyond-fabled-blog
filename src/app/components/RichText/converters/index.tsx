@@ -1,6 +1,5 @@
 'use client'
-import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
-import { DefaultNodeTypes, SerializedBlockNode, SerializedLinkNode } from '@payloadcms/richtext-lexical'
+import {  SerializedBlockNode, SerializedLinkNode } from '@payloadcms/richtext-lexical'
 import { JSXConvertersFunction, LinkJSXConverter } from '@payloadcms/richtext-lexical/react'
 import { internalDocToHref } from './internalLink'
 import { ContentWithMediaBlock } from '@/app/blocks/ContentWithMedia/ContentWithMediaBlock';
@@ -24,7 +23,7 @@ export const converters : JSXConvertersFunction = ({ defaultConverters }) => ({
     ...textConverter,
     ...listConverter,
 
-    link: ({ node, nodesToJSX }:{node: SerializedLinkNode, nodesToJSX: any}) => {
+    link: ({ node, nodesToJSX }) => {
 
       const { url, newTab, rel } = node.fields || {};
       const jsxChildren = nodesToJSX({ nodes: node.children });

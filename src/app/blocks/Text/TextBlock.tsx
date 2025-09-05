@@ -1,5 +1,4 @@
 
-import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 import { Text as TextPayloadType } from "../../../../payload-types";
 import { RichText } from "../../components/RichText/RichText";
 
