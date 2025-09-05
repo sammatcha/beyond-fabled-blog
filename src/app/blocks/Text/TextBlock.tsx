@@ -1,18 +1,17 @@
 
-import { RichText } from "@/app/components/RichText";
-import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
+import { Text as TextPayloadType } from "../../../../payload-types";
+import { RichText } from "../../components/RichText/RichText";
 
+// type TextBlockProps = {
+//   content: SerializedEditorState | null
+//   id?: string
+// }
 
-type TextBlockProps = {
-  content: SerializedEditorState | null
-  id?: string
-}
-
-export default function TextBlock(props: TextBlockProps) {
+export default function TextBlock(props: {content: TextPayloadType['content'], id?: string}) {
   if (!props.content) {
     return null;
   }
-  // const html = props.content ? convertLexicalToHTML({data:props.content}) : '';
+
   
 
   return (

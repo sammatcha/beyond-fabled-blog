@@ -3,7 +3,7 @@ import config from '@payload-config';
 import RenderBlocks from "../../../blocks/index"; 
 
 import { RefreshRouteOnSave } from "../../../components/RefreshRouteOnSave"
-import { RichText } from "@/app/components/RichText";
+import { RichText } from "@/app/components/RichText/RichText";
 
 // INDIVIDUAL POST PAGE
 export default async function PostPage({params
@@ -24,7 +24,7 @@ const {docs} = await payload.find({
     draft: true, //optional, if you want to fetch draft posts
 })
 const data = docs?.[0]; //entire post object
-// console.log('allPost:', data); 
+
  console.log('data content:', data.content)
  return (
    

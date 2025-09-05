@@ -1,11 +1,11 @@
 import type {ContentWithMedia } from "../../../../payload-types";
 import Image from "next/image";
-import { RichText } from "@/app/components/RichText";
+import { RichText } from "@/app/components/RichText/RichText";
 
 
 
 export function ContentWithMediaBlock(props: ContentWithMedia) {
-//     const html = props.content ? convertLexicalToHTML({data:props.content}) : '';
+
     const image = props.image && typeof props.image === 'object' ? props.image : null ;
     const selectedSize = image?.displaySize ?? "tablet";
     const imageURL = image?.sizes?.[selectedSize]?.url ?? image?.url;
