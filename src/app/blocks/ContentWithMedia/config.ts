@@ -31,18 +31,18 @@ export const ContentWithMediaBlock: Block = {
                     OrderedListFeature(),
                     ChecklistFeature(),
                     LinkFeature({
-  fields: ({ defaultFields }) => [
-    ...defaultFields,
-    {
-      name: 'rel',
-      type: 'select',
-      options: ['noopener', 'noreferrer', 'nofollow'],
-    },
-  ],
-  enabledCollections: [ 'posts'], // Collections for internal links
-  maxDepth: 2, // Population depth for internal links
-  // disableAutoLinks: false, // Allow auto-conversion of URLs
-}),
+                      fields: ({defaultFields}) => [
+                        ...defaultFields,
+                        {
+                          name: 'rel',
+                          type:'select',
+                          options: [
+                            {label: 'No Follow', value: 'nofollow'},
+                            {label: 'Sponsored', value: 'sponsored'},
+                          ]
+                        },
+                      ],
+                    }),
                     TextStateFeature({
                         state: {
                           color: {

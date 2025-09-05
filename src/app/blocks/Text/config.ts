@@ -30,7 +30,19 @@ export const TextBlock: Block = {
           UnorderedListFeature(),
           OrderedListFeature(),
           ChecklistFeature(),
-          LinkFeature(),
+          LinkFeature({
+            fields: ({defaultFields}) => [
+              ...defaultFields,
+              {
+                name: 'rel',
+                type:'select',
+                options: [
+                  {label: 'No Follow', value: 'nofollow'},
+                  {label: 'Sponsored', value: 'sponsored'},
+                ]
+              },
+            ],
+          }),
           TextStateFeature({
             state: {
               color: {

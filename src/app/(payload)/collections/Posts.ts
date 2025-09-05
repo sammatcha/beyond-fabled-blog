@@ -15,10 +15,10 @@ export const Posts : CollectionConfig = {
           if (operation === 'create' || operation === 'update'){
             if(doc._status === 'published'){
               await axios.post(process.env.VERCEL_DEPLOY_HOOK || '')
-               console.log("Post saved:", doc.title, "Operation:", operation);
+         
           }
         }
-        console.log("status:", doc._status);
+     
          return doc;
         }
       ]
@@ -55,7 +55,23 @@ export const Posts : CollectionConfig = {
             blocks: [ContentWithMediaBlock, TextBlock, ImageBlock],
           }),
           FixedToolbarFeature(),
-          LinkFeature(),
+          LinkFeature({
+            fields: ({defaultFields}) => [
+              ...defaultFields,
+              {
+                name: 'rel',
+                type:'select',
+                options: [
+                  {label: 'No Follow', value: 'nofollow'},
+                  {label: 'Sponsored', value: 'sponsored'},
+
+                ]
+              },
+            ],
+            enabledCollections: ['posts', 'media'],
+            maxDepth: 2,
+
+          }),
           TextStateFeature({
             state: {
               color: {

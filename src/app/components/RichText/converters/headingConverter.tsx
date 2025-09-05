@@ -16,7 +16,7 @@ export const headingConverter: JSXConverters<SerializedHeadingNode> = {
     }
 
       const Tag = node.tag
-      // console.log("tag:", Tag, "children:", jsxChildren)
+    
       const heading = headingClasses[node.tag] || ''
       return <Tag className ={heading}>{jsxChildren}</Tag>
     
