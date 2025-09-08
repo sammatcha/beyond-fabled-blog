@@ -15,7 +15,12 @@ import { listConverter } from './listConverter'
 
 
 const base = LinkJSXConverter({ internalDocToHref })
-
+type RelType = 'normal' | 'special' | 'sensitive';
+const Preset: Record<RelType, string[]> = {
+  normal: [],
+  special: ['sponsored', 'noreferrer', 'nofollow'],
+  sensitive: ['noreferrer'],
+}
 export const converters : JSXConvertersFunction = ({ defaultConverters }) => ({
     ...defaultConverters,
     ...base,
@@ -33,24 +38,21 @@ export const converters : JSXConvertersFunction = ({ defaultConverters }) => ({
       if (typeof rel === 'string' && rel.trim()) {
         const relValue = rel.trim();
         
+        const relType = relValue as RelType;
+        if(relType in Preset) {
+          Preset[relType].forEach(rel => relSet.add(rel));
           
-        if (relValue === 'special') {
-          relSet.add('sponsored');
-          relSet.add('noreferrer');
-          relSet.add('nofollow');
-        }
-        if (relValue === 'sensitive') {
-          relSet.add('noreferrer');
+ 
         }
       }
       
-      const relAttributes = [...relSet];
+      const relAttributes = [...relSet].join(' ');
      
       return (
         <a
           href={url}
           target={newTab ? '_blank' : undefined}
-          rel={relAttributes.join(' ')}
+          rel={relAttributes}
           className='underline text-sky-600 hover:text-sky-800'
         >
           {jsxChildren}

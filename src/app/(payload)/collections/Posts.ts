@@ -59,13 +59,17 @@ export const Posts : CollectionConfig = {
             fields: ({defaultFields}) => [
               ...defaultFields,
               {
-                name: 'rel',
+                name: 'relType',
                 type:'select',
                 options: [
+                  {label: 'Normal', value: 'normal'},
                   {label: 'Special', value: 'special'},
                   {label: 'Sensitive', value: 'sensitive'},
 
-                ]
+                ],
+                admin: {
+                  isClearable: false,
+                }
               },
             ],
             enabledCollections: ['posts', 'media'],
