@@ -37,6 +37,7 @@ export const ContentWithMediaBlock: Block = {
                           name: 'rel',
                           type:'select',
                           options: [
+                            {label: 'Normal', value: 'normal'},
                             {label: 'Special', value: 'special'},
                             {label: 'Sensitive', value: 'sensitive'},
                           ]
