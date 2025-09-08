@@ -37,8 +37,8 @@ export const ContentWithMediaBlock: Block = {
                           name: 'rel',
                           type:'select',
                           options: [
-                            {label: 'No Follow', value: 'nofollow'},
-                            {label: 'Sponsored', value: 'sponsored'},
+                            {label: 'Special', value: 'special'},
+                            {label: 'Sensitive', value: 'sensitive'},
                           ]
                         },
                       ],

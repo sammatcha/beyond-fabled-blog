@@ -24,35 +24,39 @@ export const converters : JSXConvertersFunction = ({ defaultConverters }) => ({
     ...listConverter,
 
     link: ({ node, nodesToJSX }) => {
-
       const { url, newTab, rel } = node.fields || {};
       const jsxChildren = nodesToJSX({ nodes: node.children });
 
-      const relSet = new Set (['noopener', 'noreferrer']);
-      if (typeof rel === 'string' && rel.trim()){
+      // Always start with clean security attributes
+      const relSet = new Set(['noopener']);
+      
+      if (typeof rel === 'string' && rel.trim()) {
         const relValue = rel.trim();
-        relSet.add(relValue);
-
-        if (relValue === 'sponsored'){
-        relSet.add('nofollow');
+        
+          
+        if (relValue === 'special') {
+          relSet.add('sponsored');
+          relSet.add('noreferrer');
+          relSet.add('nofollow');
+        }
+        if (relValue === 'sensitive') {
+          relSet.add('noreferrer');
         }
       }
+      
       const relAttributes = [...relSet];
      
-
       return (
         <a
           href={url}
           target={newTab ? '_blank' : undefined}
           rel={relAttributes.join(' ')}
           className='underline text-sky-600 hover:text-sky-800'
-         
         >
-           {jsxChildren}
+          {jsxChildren}
         </a>
       );
     },
-
     blocks: {
       contentWithMedia: ({ node }: { node: SerializedBlockNode<ContentWithMedia> }) => (
         <ContentWithMediaBlock {...node.fields} />
@@ -68,7 +72,4 @@ export const converters : JSXConvertersFunction = ({ defaultConverters }) => ({
         <TextBlock content={node.fields.content} />
       ),
     }
-  }
-  
-
-)
+  });
