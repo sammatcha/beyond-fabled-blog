@@ -7,7 +7,7 @@ export const headingConverter: JSXConverters<SerializedHeadingNode> = {
     const jsxChildren = nodesToJSX({ nodes: node.children })
 
     const headingClasses = {
-      h1: 'md:text-4xl sm:text-lg ',
+      h1: 'md:text-3xl sm:text-lg ',
       h2: 'md:text-2xl sm:text-lg ',
       h3: 'md:text-xl sm:text-lg ',
       h4: 'md:text-lg sm:text-base',

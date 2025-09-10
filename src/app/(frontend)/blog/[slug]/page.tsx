@@ -25,15 +25,24 @@ const {docs} = await payload.find({
 })
 const data = docs?.[0]; //entire post object
 
- console.log('data content:', data.content)
+//  console.log('data content:', data.content)
  return (
    
-    <div className="p-6">
+    <div className="max-w-[75ch] mx-auto px-4 sm:px-6 md:px-8 pt-10 sm:pt-12 pb-16 sm:pb-20 ">
        <RefreshRouteOnSave />
-      <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight mb-6 rounded-xl">{data.title}</h1>
      
-      <RenderBlocks  blocks={data.blocks}  />
-      {data.content && <RichText data={data.content} />}
+     <div className="text-stone-900">
+        <div className="leading-7 md:leading-8  text-stone-900">
+            <RenderBlocks  blocks={data.blocks}  />
+     
+            {data.content && <RichText data={data.content} />}
+      
+        </div>
+     </div>
+     
+      
+     
       
     </div>
   )
