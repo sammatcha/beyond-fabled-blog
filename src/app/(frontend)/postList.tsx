@@ -38,7 +38,7 @@ const filteredPosts = filterBy
                                     )}
                                      </div>
                                      {/* Post Content */}
-                                 <div className="text-lg md:text-xl lg:text-2xl flex flex-col items-center font-karla">
+                                 <div className="text-base md:text-lg lg:text-xl flex flex-col items-center font-karla">
                                    <h1 className="font-bold font-karla">{post.title}</h1> 
                                    {post.pubDate &&
                                    <p className="text-xs lg:text-sm text-mdCuteBlue ">{dateFormat({date: post.pubDate})}</p>
