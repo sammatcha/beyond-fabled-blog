@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Roboto_Mono, Julius_Sans_One, Alex_Brush, Oleo_Scrip
 import './globals.css';
 import './payloadStyles.css';
 import Nav from "./components/nav/Nav";
+import Footer from "./components/Footer";
 
 
 const geistSans = Geist({
@@ -59,7 +60,7 @@ const mPlusRound = M_PLUS_Rounded_1c({
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
-  weight: ["400", "900"],
+  weight: ["400", "500"],
 })
 
 export const metadata: Metadata = {
@@ -86,12 +87,13 @@ export default function RootLayout({
           ${mPlusRound.variable}
           ${nunito.variable}
           antialiased   `}>
-      <body className={"min-h-screen min-w-full  "}>
+      <body className={"min-h-screen min-w-full z-10 "}>
         <Nav />
         <main className="bg-warmBeige min-w-full min-h-screen text-cuteBlue font-quickSand">
           {children}
         </main>
         
+        <Footer/>
       </body>
     </html>
   );
