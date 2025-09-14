@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Roboto_Mono, Julius_Sans_One, Alex_Brush, Oleo_Script, Caveat_Brush, Quicksand, Karla, M_PLUS_Rounded_1c, Nunito } from "next/font/google";
+import { Geist, Geist_Mono, Roboto_Mono, Julius_Sans_One, Alex_Brush, Oleo_Script, Caveat_Brush, Quicksand, Karla, M_PLUS_Rounded_1c, Nunito, Playfair_Display, Cookie, Style_Script } from "next/font/google";
 import './globals.css';
 import './payloadStyles.css';
 import Nav from "./components/nav/Nav";
+import Footer from "./components/Footer";
 
 
 const geistSans = Geist({
@@ -59,7 +60,25 @@ const mPlusRound = M_PLUS_Rounded_1c({
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
-  weight: ["400", "900"],
+  weight: ["400", "500"],
+})
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfairDisplay",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+})
+
+const cookie = Cookie({
+  variable: "--font-cookie",
+  subsets: ["latin"],
+  weight: ["400"],
+})
+
+const styleScript = Style_Script({
+  variable: "--font-styleScript",
+  subsets: ["latin"],
+  weight: ["400"],
 })
 
 export const metadata: Metadata = {
@@ -85,13 +104,17 @@ export default function RootLayout({
           ${karla.variable}
           ${mPlusRound.variable}
           ${nunito.variable}
+          ${playfairDisplay.variable}
+          ${cookie.variable}
+          ${styleScript.variable}
           antialiased   `}>
-      <body className={"min-h-screen min-w-full  "}>
+      <body className={" min-w-full "}>
         <Nav />
-        <main className="bg-warmBeige min-w-full min-h-screen text-cuteBlue font-quickSand">
+        <main className="bg-warmBeige min-w-full h-full text-cuteBlue font-quickSand ">
           {children}
         </main>
         
+         <Footer/> 
       </body>
     </html>
   );
