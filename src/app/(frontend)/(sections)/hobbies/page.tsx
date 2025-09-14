@@ -14,7 +14,7 @@ export default async function HobbiesPage(){
         }
     });
     return(
-        <div className="px-4 py-4 max-w-7xl mx-auto ">
+        <div className="px-4 py-4 max-w-7xl mx-auto">
           
                     <PostList posts={posts} filterBy="Hobbies"/>
         </div>

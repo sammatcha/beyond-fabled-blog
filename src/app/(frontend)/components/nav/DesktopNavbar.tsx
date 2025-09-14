@@ -22,7 +22,7 @@ export default function Navbar(){
            ))}
 
         </div>
-        <div className="bottom-0 h-[3px]  mx-auto w-3xs  bg-stone-500 hidden lg:block border-b"></div>
+        <div className="bottom-0 h-[2px]  mx-auto w-2xs  bg-stone-500 hidden lg:block border-b"></div>
     </nav>
     )
 }

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer(){
     return(
-        <div className="w-full z-20 bg-warmBeige  ">
+        <div className="w-full bg-warmBeige z-20 fixed bottom-0 lg:shadow-sm">
             <div className="px-6 justify-between flex items-center ">
                 <p className="font-nunito font-medium text-cuteBlue">&copy; Beyond Fabled 2025</p>
                     <div className="cursor-pointer flex ">

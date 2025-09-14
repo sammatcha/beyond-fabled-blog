@@ -16,8 +16,8 @@ const filteredPosts = filterBy
 // console.log("posts:", posts);
 
     return(
-                <div className="grid grid-cols-1  md:grid-cols-3  grid-rows-1 md:grid-rows-3 gap-6 container 
-                mt-2 max-w-sm md:max-w-6xl mx-auto px-4 sm:px-6 pt-15 md:pt-20 ">
+                <div className="h-screen grid grid-cols-1 md:grid-cols-3  grid-rows-1  gap-6 container 
+                 max-w-sm md:max-w-6xl mx-auto px-4 sm:px-6 mt-4 md:mt-6 lg:mt-10 xl:mt-15 ">
                 
                         {filteredPosts.map((post) =>  (
                             <Link  key={post.id} href={`/blog/${post.slug}`} className="flex flex-col gap-y-3 ">

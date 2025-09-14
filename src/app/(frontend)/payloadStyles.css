@@ -19,6 +19,7 @@
  --color-warmSand:  #D8B8AD;
  --color-sageGreen: #59775C;
  --color-lightSageGreen: #6f8c72;
+  --color-darkSageGreen: #176438;
   --font-robotoMono: var(--font-roboto-mono);
   --font-julius: var(--font-julius);
   --font-alexBrush: var(--font-alex-brush);
@@ -28,5 +29,8 @@
   --font-karla: var(--font-karla);
   --font-mPlusRound: var(--font-mPlusRoun);
   --font-nunito: var(--font-nunito);
-          
+  --font-playfairDisplay: var(--font-playfairDisplay);
+  --font-cookie: var(--font-cookie);
+  --font-styleScript: var(--font-styleScript);
+    
 }
