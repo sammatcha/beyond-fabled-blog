@@ -6,9 +6,6 @@ import { useState } from "react";
 
 export default function GalleryBlock(props: {images: GalleryPayloadType['images']}) {
     const images = props.images;
-   
-    const width =  400;
-    const height =  400;
 
     //slider implementation
 
