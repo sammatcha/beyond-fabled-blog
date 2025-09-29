@@ -2,6 +2,7 @@ import { CollectionConfig } from "payload";
 import { ContentWithMediaBlock } from "../../blocks/ContentWithMedia/config";
 import { ImageBlock } from "../../blocks/Image/config";
 import { TextBlock } from "../../blocks/Text/config";
+import { GalleryBlock } from "../../blocks/Gallery/config";
 import slugify from "slugify";
 import { BlocksFeature, FixedToolbarFeature, LinkFeature, TextStateFeature, defaultColors, lexicalEditor } from "@payloadcms/richtext-lexical";
 import axios from "axios";
@@ -43,7 +44,7 @@ export const Posts : CollectionConfig = {
         {
             name: 'blocks',
             type: 'blocks',
-            blocks: [ContentWithMediaBlock, TextBlock, ImageBlock],
+            blocks: [ContentWithMediaBlock, TextBlock, ImageBlock, GalleryBlock],
         },
         {
       name: "content",
@@ -147,20 +148,6 @@ export const Posts : CollectionConfig = {
             }
           ]
         },
-        {
-          name: 'gallery',
-          type: 'array',
-          fields: [
-            {
-              name: 'image',
-              type: 'upload',
-              relationTo: 'media',
-              hasMany: true
-            }
-          ]
-
-        },
-       
         {
             name: 'slug',
             type: 'text',

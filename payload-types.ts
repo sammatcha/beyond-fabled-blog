@@ -234,7 +234,7 @@ export interface Post {
   title: string;
   pubDate: string;
   featureImage?: (string | null) | Media;
-  blocks?: (ContentWithMedia | Text | Image)[] | null;
+  blocks?: (ContentWithMedia | Text | Image | Gallery)[] | null;
   content?: {
     root: {
       type: string;
@@ -254,12 +254,6 @@ export interface Post {
   keywords?:
     | {
         tag?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  gallery?:
-    | {
-        image?: (string | Media)[] | null;
         id?: string | null;
       }[]
     | null;
@@ -330,6 +324,20 @@ export interface Image {
   id?: string | null;
   blockName?: string | null;
   blockType: 'image';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Gallery".
+ */
+export interface Gallery {
+  images: {
+    image?: (string | null) | Media;
+    caption?: string | null;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'gallery';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -617,6 +625,7 @@ export interface PostsSelect<T extends boolean = true> {
         contentWithMedia?: T | ContentWithMediaSelect<T>;
         text?: T | TextSelect<T>;
         image?: T | ImageSelect<T>;
+        gallery?: T | GallerySelect<T>;
       };
   content?: T;
   category?: T;
@@ -624,12 +633,6 @@ export interface PostsSelect<T extends boolean = true> {
     | T
     | {
         tag?: T;
-        id?: T;
-      };
-  gallery?:
-    | T
-    | {
-        image?: T;
         id?: T;
       };
   slug?: T;
@@ -666,6 +669,21 @@ export interface ImageSelect<T extends boolean = true> {
   image?: T;
   alt?: T;
   displaySize?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Gallery_select".
+ */
+export interface GallerySelect<T extends boolean = true> {
+  images?:
+    | T
+    | {
+        image?: T;
+        caption?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

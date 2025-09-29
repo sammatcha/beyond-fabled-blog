@@ -16,7 +16,7 @@ export default function ImageBlock(props: {image: ImagePayloadType['image']}) {
     }
 
     const selectedSize = image?.displaySize ?? "tablet";
-    console.log("Selected image size:", selectedSize);
+    // console.log("Selected image size:", selectedSize);
     const imageURL = image?.sizes?.[selectedSize]?.url ?? image?.url;
     const width = image?.sizes?.[selectedSize]?.width ?? 500;
     const height = image?.sizes?.[selectedSize]?.height ?? 500;

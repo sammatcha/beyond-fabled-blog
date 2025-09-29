@@ -3,12 +3,13 @@ import {  SerializedBlockNode } from '@payloadcms/richtext-lexical'
 import { JSXConvertersFunction, LinkJSXConverter } from '@payloadcms/richtext-lexical/react'
 import { internalDocToHref } from './internalLink'
 import { ContentWithMediaBlock } from '@/app/blocks/ContentWithMedia/ContentWithMediaBlock';
-import { ContentWithMedia, Image as ImagePayloadType, Text as TextPayloadType } from '../../../../../payload-types';
+import { ContentWithMedia, Image as ImagePayloadType, Text as TextPayloadType, Gallery as GalleryPayloadType } from '../../../../../payload-types';
 import ImageBlock from '@/app/blocks/Image/ImageBlock';
 import { headingConverter } from './headingConverter';
 import { textConverter } from './textConverter';
 import TextBlock from '@/app/blocks/Text/TextBlock';
 import { listConverter } from './listConverter'
+import GalleryBlock from '@/app/blocks/Gallery/GalleryBlock';
 
 
 // PRIMARY CONVERTERS
@@ -72,6 +73,9 @@ export const converters : JSXConvertersFunction = ({ defaultConverters }) => ({
       },
       text: ({ node }: { node: SerializedBlockNode<TextPayloadType> }) => (
         <TextBlock content={node.fields.content} />
+      ),
+      gallery: ({ node }: { node: SerializedBlockNode<GalleryPayloadType> }) => (
+        <GalleryBlock {...node.fields} />
       ),
     }
   });

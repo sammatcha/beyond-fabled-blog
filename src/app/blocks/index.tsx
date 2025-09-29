@@ -1,7 +1,7 @@
 import TextBlock from './Text/TextBlock';
-// import ContentWithMediaBlock from './ContentWithMedia/ContentWithMediaBlock';
 import ImageBlock from './Image/ImageBlock';
 import { ContentWithMediaBlock } from './ContentWithMedia/ContentWithMediaBlock';
+import GalleryBlock from './Gallery/GalleryBlock';
 import { Post } from '../../../payload-types';
 
 
@@ -32,8 +32,13 @@ export default function RenderBlocks({blocks}: { blocks?: Post['blocks'] | null 
               ? <ImageBlock key={block.id} image={block.image}  /> 
               : null
           );
-        default:
-return null;     
+          case 'gallery':
+            return (
+              <GalleryBlock key={block.id} {...block} />
+            );
+
+            default:
+            return null;     
         }
       })}
     </>

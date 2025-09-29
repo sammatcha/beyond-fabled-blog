@@ -15,7 +15,7 @@ const payload = await getPayload({config});
 
 const {docs} = await payload.find({
     collection: 'posts', //required
-    depth: 2,
+    depth: 3,
     where: {
         slug: {
             equals: slug
@@ -26,6 +26,8 @@ const {docs} = await payload.find({
 const data = docs?.[0]; //entire post object
 
 //  console.log('data content:', data.content)
+// console.log('Gallery data:', data.blocks?.find(block => block.blockType === 'gallery'));
+
  return (
    
     <div className="max-w-[75ch] mx-auto px-4 sm:px-6 md:px-8 pt-10 sm:pt-12 pb-16 sm:pb-20 ">
