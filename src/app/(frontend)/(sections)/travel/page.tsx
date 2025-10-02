@@ -6,7 +6,7 @@ export default async function TravelPage() {
     const payload = await getPayload({config});
     const {docs: posts} = await payload.find({
         collection: 'posts',
-        depth: 1,
+        depth: 3,
         where: {
             category: {
                 equals: 'Travel'

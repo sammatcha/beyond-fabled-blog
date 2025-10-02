@@ -330,8 +330,10 @@ export interface Image {
  * via the `definition` "Gallery".
  */
 export interface Gallery {
+  layout?: ('grid' | 'slider') | null;
   images: {
     image?: (string | null) | Media;
+    layoutSize?: ('square' | 'wide' | 'tall' | 'full') | null;
     caption?: string | null;
     id?: string | null;
   }[];
@@ -677,10 +679,12 @@ export interface ImageSelect<T extends boolean = true> {
  * via the `definition` "Gallery_select".
  */
 export interface GallerySelect<T extends boolean = true> {
+  layout?: T;
   images?:
     | T
     | {
         image?: T;
+        layoutSize?: T;
         caption?: T;
         id?: T;
       };

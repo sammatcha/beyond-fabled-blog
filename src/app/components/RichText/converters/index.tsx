@@ -75,7 +75,7 @@ export const converters : JSXConvertersFunction = ({ defaultConverters }) => ({
         <TextBlock content={node.fields.content} />
       ),
       gallery: ({ node }: { node: SerializedBlockNode<GalleryPayloadType> }) => (
-        <GalleryBlock {...node.fields} />
+        <GalleryBlock  images = {node.fields.images} layout={node.fields.layout }/>
       ),
     }
   });

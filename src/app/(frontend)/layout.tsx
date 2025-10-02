@@ -4,6 +4,8 @@ import './globals.css';
 import './payloadStyles.css';
 import Nav from "./components/nav/Nav";
 import Footer from "./components/Footer";
+import { Analytics } from '@vercel/analytics/next';
+
 
 
 const geistSans = Geist({

@@ -53,7 +53,7 @@ export const Posts : CollectionConfig = {
         features: ({ defaultFeatures }) => [
           ...defaultFeatures,
           BlocksFeature({
-            blocks: [ContentWithMediaBlock, TextBlock, ImageBlock],
+            blocks: [ContentWithMediaBlock, TextBlock, ImageBlock, GalleryBlock],
           }),
           FixedToolbarFeature(),
           LinkFeature({
@@ -173,10 +173,11 @@ export const Posts : CollectionConfig = {
           },
     ],
       versions: {
-    drafts: {
-      schedulePublish: true,
-    },
-  },
+        maxPerDoc: 0,
+        drafts: {
+          schedulePublish: true,
+        },
+      },
   access: {
     read: () => true,
     update: () => true,
