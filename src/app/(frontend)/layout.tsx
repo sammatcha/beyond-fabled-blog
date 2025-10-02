@@ -4,6 +4,8 @@ import './globals.css';
 import './payloadStyles.css';
 import Nav from "./components/nav/Nav";
 import Footer from "./components/Footer";
+import { Analytics } from '@vercel/analytics/next';
+
 
 
 const geistSans = Geist({
@@ -113,7 +115,7 @@ export default function RootLayout({
         <main className="bg-warmBeige min-w-full h-full text-cuteBlue font-quickSand ">
           {children}
         </main>
-        
+        <Analytics/>
          <Footer/> 
       </body>
     </html>

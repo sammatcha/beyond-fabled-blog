@@ -34,8 +34,10 @@ export default function RenderBlocks({blocks}: { blocks?: Post['blocks'] | null 
           );
           case 'gallery':
             return (
-              <GalleryBlock key={block.id} {...block} />
-            );
+              typeof block.images === 'object' && block.images !=null ?
+              <GalleryBlock key={block.id} images={block.images} layout={block.layout}/>
+              : null
+            ) 
 
             default:
             return null;     

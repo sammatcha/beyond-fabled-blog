@@ -26,7 +26,7 @@ export default function ImageBlock(props: {image: ImagePayloadType['image']}) {
             {imageURL && (
               <div className="img-container object-contain">
                 <Image src={imageURL ?? undefined} 
-                alt={image?.alt ?? "Image Block"} 
+                alt={image?.alt ?? "Image"} 
                 width={width} height={height} 
                 className="object-contain" 
                 
