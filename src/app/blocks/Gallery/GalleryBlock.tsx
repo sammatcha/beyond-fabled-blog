@@ -73,7 +73,7 @@ export default function GalleryBlock(props: {images: GalleryPayloadType['images'
     if (layout === 'grid'){
         return(
                 <div className="grid grid-cols-2 md:grid-cols-3 w-full max-w-3xl lg:max-w-4xl mx-auto gap-3">
-                    {images.map((item, index) => {
+                    {images.map((item) => {
                         const {item:itemCls, ratio} = mapLayout(item.layoutSize || 'square')
                      return(
                     <div key={item.id} className={`flex flex-col ${itemCls}`}>
