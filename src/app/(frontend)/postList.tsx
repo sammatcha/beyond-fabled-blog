@@ -16,13 +16,13 @@ const filteredPosts = filterBy
 // console.log("posts:", posts);
 
     return(
-                <div className="h-screen grid grid-cols-1 md:grid-cols-3  grid-rows-1  gap-6 container 
-                 max-w-sm md:max-w-6xl mx-auto px-4 sm:px-6 mt-4 md:mt-6 lg:mt-10 xl:mt-15 ">
+                <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-6 container min-h-full
+                 max-w-sm md:max-w-6xl mx-auto px-4 sm:px-6 mt-4 md:mt-6 lg:mt-10 xl:mt-15 grid-auto-rows">
                 
                         {filteredPosts.map((post) =>  (
-                            <Link  key={post.id} href={`/blog/${post.slug}`} className="flex flex-col gap-y-3 ">
+                            <Link key={post.id} href={`/blog/${post.slug}`}>
                                 <div className="border rounded-xl border-warmBeige flex flex-col bg-white shadow-lg 
-                                 justify-center items-center hover:opacity-80 h-[200px]  md:h-[250px] overflow-hidden  mx-auto " > 
+                                 justify-center items-center hover:opacity-80 h-[200px]  md:h-[250px] overflow-hidden mx-auto" > 
                                     {post.featureImage && (
                                     <div className="w-full aspect-[4/3] ">
                                         {typeof post.featureImage === 'object' && post.featureImage.url && (

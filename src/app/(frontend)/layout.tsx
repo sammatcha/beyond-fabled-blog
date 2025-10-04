@@ -112,7 +112,7 @@ export default function RootLayout({
           antialiased   `}>
       <body className={" min-w-full "}>
         <Nav />
-        <main className="bg-warmBeige min-w-full h-full text-cuteBlue font-quickSand ">
+        <main className="bg-warmBeige min-w-full h-screen text-cuteBlue font-quickSand ">
           {children}
         </main>
         <Analytics/>
